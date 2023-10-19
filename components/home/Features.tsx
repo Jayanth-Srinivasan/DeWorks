@@ -79,7 +79,6 @@ function Features() {
 								className='text-app-slate-blue'
 								size={36}
 							/>
-
 							<h2 className='mt-4 text-lg font-bold text-white'>
 								{feat.title}
 							</h2>

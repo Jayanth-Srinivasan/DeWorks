@@ -58,7 +58,9 @@ function Header() {
                         </li>
                     ))}
                     <li>
-                      <Button className="h-12">Post a Job</Button>
+                        <Button variant={"outline"} className="h-12">
+                            Post a Job
+                        </Button>
                     </li>
                 </ul>
             </div>
@@ -88,7 +90,9 @@ function Header() {
                                             )
                                         )}
                                         <li>
-                                            <Button>Post a Job</Button>
+                                            <Button variant={"outline"}>
+                                                Post a Job
+                                            </Button>
                                         </li>
                                     </ul>
                                 </nav>
