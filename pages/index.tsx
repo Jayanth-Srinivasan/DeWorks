@@ -4,6 +4,7 @@ import Hero from '@/components/home/Hero';
 import Features from '@/components/home/Features';
 import Category from '@/components/home/Category';
 import Faqs from '@/components/home/Faqs';
+import Postings from '@/components/home/Postings';
 
 export default function Home() {
 	return (
@@ -16,6 +17,7 @@ export default function Home() {
 				<Hero />
 				<Features />
 				<Category />
+        <Postings/>
 				<Faqs />
 			</main>
 		</div>
