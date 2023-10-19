@@ -7,7 +7,7 @@ function Footer() {
 		<footer id='contact' className=''>
 			<div className='lg:mx-auto lg:max-w-[1440px] p-4 md:px-16'>
 				<div className='flex flex-col items-stretch justify-start'>
-					<div className='w-full border-b p-2 md:p-4'>
+					<div className='w-full border-b border-white/20 p-2 md:p-4'>
 						<div className='flex flex-col items-center justify-between md:items-start lg:flex-row'>
 							<Link href='/' className='flex items-center'>
 								<p className='mb-[40px] leading-none lg:mb-0 font-semibold text-lg md:text-2xl'>
@@ -71,13 +71,13 @@ function Footer() {
 							<div className='mb-4 flex flex-col items-stretch justify-center text-center md:flex-row'>
 								<Link
 									href='/terms-and-conditions'
-									className='py-2 text-[14px] text-[#777a85] md:mr-[24px]'
+									className='py-2 text-[14px] text-slate-300 md:mr-[24px]'
 								>
 									Terms and Conditions
 								</Link>
 								<Link
 									href='/privacy-policy'
-									className='py-2 text-[14px] text-[#777a85] md:mr-[24px]'
+									className='py-2 text-[14px] text-slate-300 md:mr-[24px]'
 								>
 									Privacy Policy
 								</Link>
@@ -85,12 +85,12 @@ function Footer() {
 									target='_blank'
 									rel='noopener noreferrer'
 									href='https://blog.codelancedevs.com'
-									className='py-2 text-[14px] text-[#777a85] md:mr-[24px]'
+									className='py-2 text-[14px] text-slate-300 md:mr-[24px]'
 								>
 									Blog
 								</a>
 							</div>
-							<p className='mb-4 text-[12px] text-[#777a85]'>
+							<p className='mb-4 text-[12px] text-slate-300'>
 								Copyright &copy; 2023 DeWorks
 							</p>
 						</div>

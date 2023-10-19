@@ -16,22 +16,22 @@ const COMMON_NAVIGATION: NavdataCollection = [
 	},
 	{
 		title: 'About',
-		link: '/',
+		link: '#',
 		target: '_self',
 	},
 	{
 		title: 'Features',
-		link: '/',
+		link: '/#features',
 		target: '_self',
 	},
 	{
 		title: 'FAQs',
-		link: '/',
+		link: '/#faqs',
 		target: '_self',
 	},
 	{
 		title: 'Find a Job',
-		link: '/',
+		link: '/find-a-job',
 		target: '_self',
 	},
 ];

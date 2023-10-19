@@ -9,20 +9,21 @@ import Postings from '@/components/home/Postings';
 import Footer from '@/components/layouts/Footer';
 
 export default function Home() {
-    return (
-        <div className="flex min-h-screen w-full bg-app-grey-dark text-stone-200">
-            <Head>
-                <title>DeWorks</title>
-            </Head>
-            <main className="w-full font-work">
-                <Header />
-                <Hero />
-                <Humans/>
-                <Features />
-                <Category />
-                <Postings />
-                <Faqs />
-            </main>
-        </div>
-    );
+	return (
+		<div className='flex min-h-screen w-full bg-app-grey-dark text-stone-200'>
+			<Head>
+				<title>DeWorks</title>
+			</Head>
+			<main className='w-full font-work'>
+				<Header />
+				<Hero />
+				<Humans />
+				<Features />
+				<Category />
+				<Postings />
+				<Faqs />
+				<Footer />
+			</main>
+		</div>
+	);
 }
