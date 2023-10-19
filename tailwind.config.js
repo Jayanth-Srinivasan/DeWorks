@@ -16,7 +16,15 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        outfit: ['var(--font-outfit)', "sans-serif"],
+        work: ['var(--font-work-sans)', "sans-serif"],
+      },
       colors: {
+        app: {
+          "slate-blue": "#2c56fe",
+          "grey": {dark: "#161616", light: "#1e1e1e"}
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
