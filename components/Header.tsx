@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import { Button } from "./ui/button";
 import {
   Sheet,
   SheetContent,
@@ -25,85 +24,82 @@ function Header() {
       link: "/",
     },
     {
-      title: "Schedule",
-      link: "/schedule",
+      title: "About",
+      link: "/",
     },
     {
-      title: "Call for Papers",
-      link: "/papers",
+      title: "Features",
+      link: "/",
     },
     {
-      title: "Publication",
-      link: "/publications",
+      title: "FAQs",
+      link: "/",
     },
     {
-      title: "Committee",
-      link: "/commitee",
+      title: "Find a Job",
+      link: "/",
     },
-    
     {
-      title: "Contact Us",
-      link: "/#contact",
+      title: "Post a Job",
+      link: "/",
     },
   ];
   return (
-    <header className="px-4 md:p-0 sticky top-0 bg-white z-50 flex items-center justify-between md:px-16 lg:max-w-8xl lg:mx-auto">
+    <header className="px-4 md:p-0 sticky top-0 z-50 flex items-center justify-between md:px-16  lg:mx-auto">
       <Link href={"/"}>
-        <h1 className="">DeWorks</h1>
+        <h1 className="text-2xl font-semibold">DeWorks</h1>
       </Link>
-      <div className="font-semibold">
-        <ul className=" lg:flex text-center text-sm xl:text-base items-center text-slate-300 hidden">
+      <div className="font-normal">
+        <ul className=" lg:flex text-center text-md xl:text-lg items-center hidden">
           {NAVLINKS.map(({ title, link }, idx) => (
-            <li
-              key={idx}
-              className="p-5 active text-black hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400"
-            >
-              <Link href={link}>
+            <li key={idx} className="p-5">
+              <Link
+                className={` ${
+                  title === "Post a Job"
+                    ? "bg-[#1e1e1e] px-8 py-2 border-2 border-[#ffffff12] hover:bg-[#2c56fe] transition-all duration-300 ease-in-out cursor-pointer rounded"
+                    : "rounded transition-colors hover:bg-[#222222] p-2 duration-300 ease-in-out"
+                } `}
+                href={link}
+              >
                 <span>{title}</span>
               </Link>
             </li>
           ))}
         </ul>
       </div>
-      <div>
+      <div className="lg:hidden">
         <Sheet>
-          <SheetTrigger className="lg:hidden">
+          <SheetTrigger className="lg:hidden py-4">
             <Menu strokeWidth={1.5} size={24} />
           </SheetTrigger>
           <SheetContent>
             <SheetHeader>
-              <SheetTitle>ICACST-23</SheetTitle>
+              <SheetTitle className="text-2xl font-semibold">
+                DeWorks
+              </SheetTitle>
               <SheetDescription>
                 <nav className="contents font-semibold ">
-                  <ul className="mx-auto flex flex-col items-center text-slate-300">
+                  <ul className="mx-auto flex flex-col items-center ">
                     {NAVLINKS.map(({ title, link }, idx) => (
-                      <li
-                        key={idx}
-                        className="p-2 active text-black hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400"
-                      >
-                        <Link href={link}>
+                      <li key={idx} className="p-2">
+                        <Link
+                          className={` ${
+                            title === "Post a Job"
+                              ? "px-8 py-2 border-2 border-[#ffffff12] bg-[#2c56fe] transition-all duration-300 ease-in-out cursor-pointer rounded"
+                              : "rounded transition-colors hover:bg-[#222222] p-2 duration-300 ease-in-out"
+                          } `}
+                          href={link}
+                        >
                           <span>{title}</span>
                         </Link>
                       </li>
                     ))}
                   </ul>
                 </nav>
-                <Button
-                  className="font-bold px-8 py-2 lg:flex flex-row hidden"
-                >
-                  Get Started
-                </Button>
               </SheetDescription>
             </SheetHeader>
           </SheetContent>
         </Sheet>
-      </div>
-      <div className="hidden lg:inline-flex">
-        <Button
-          className="font-bold px-8 py-2 lg:flex flex-row hidden"
-        >
-          Get Started
-        </Button>
       </div>
     </header>
   );
