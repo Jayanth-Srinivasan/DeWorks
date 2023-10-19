@@ -138,7 +138,7 @@ function Features() {
     return (
         <section className="py-[50px] md:py-[80px]" id="features">
             <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
-                <div className="mx-auto flex flex-col gap-4 max-w-xl text-center">
+                <div className="mx-auto flex flex-col gap-4 max-w-2xl text-center">
                     <h2 className="text-3xl lg:text-5xl font-bold">
                         Kickstart your Freelancing
                     </h2>
@@ -151,7 +151,7 @@ function Features() {
                 <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {FEATURES.map((feat, idx) => (
                         <a
-                            className="block rounded-xl border-2 border-[#ffffff12] p-8 shadow-xl transition duration-300 hover:scale-105"
+                            className="block rounded-xl border border-white/10 p-8 shadow-xl transition duration-300 hover:-translate-y-1"
                             href="#"
                             key={idx}
                         >
@@ -165,11 +165,6 @@ function Features() {
                                 {feat.Description}
                             </p>
                         </a>
-                        // <div key={idx} className="flex flex-col items-center">
-                        //     <div className="mb-4">{feat.Svg}</div>
-                        //     <h1 className="text-lg font-semibold">{feat.Title}</h1>
-                        //     <span className="text-stone-300">{feat.Description}</span>
-                        // </div>
                     ))}
                 </div>
             </div>
