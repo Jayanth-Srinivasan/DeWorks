@@ -6,6 +6,7 @@ import Category from '@/components/home/Category';
 import Faqs from '@/components/home/Faqs';
 import Humans from '@/components/home/Humans';
 import Postings from '@/components/home/Postings';
+import Footer from '@/components/layouts/Footer';
 
 export default function Home() {
 	return (
@@ -21,6 +22,7 @@ export default function Home() {
 				<Category />
 				<Postings />
 				<Faqs />
+				<Footer />
 			</main>
 		</div>
 	);
