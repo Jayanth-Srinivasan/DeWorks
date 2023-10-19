@@ -1,12 +1,12 @@
-import Head from "next/head";
-import Header from "@/components/Header";
-import Hero from "@/components/home/Hero";
-import Features from "@/components/home/Features";
-import Category from "@/components/home/Category";
-import Faqs from "@/components/home/Faqs";
-import Humans from "@/components/home/Humans";
-import Postings from "@/components/home/Postings";
-
+import Head from 'next/head';
+import Header from '@/components/layouts/Header';
+import Hero from '@/components/home/Hero';
+import Features from '@/components/home/Features';
+import Category from '@/components/home/Category';
+import Faqs from '@/components/home/Faqs';
+import Humans from '@/components/home/Humans';
+import Postings from '@/components/home/Postings';
+import Footer from '@/components/layouts/Footer';
 
 export default function Home() {
     return (
