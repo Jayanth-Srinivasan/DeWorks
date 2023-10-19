@@ -46,33 +46,38 @@ function Faqs() {
     ];
 
   return (
-    <section className="" id="faqs">
-      <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
-        <div className="mx-auto max-w-lg text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl">
-            People Often Ask About
-          </h2>
+      <section className="py-[50px] md:py-[80px]" id="faqs">
+          <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
+              <div className="mx-auto max-w-lg flex flex-col gap-4 text-center">
+                  <h2 className="text-3xl lg:text-5xl font-bold">
+                      People Often Ask About
+                  </h2>
 
-          <p className="my-4 text-slate-300">
-            Doloremque Laudantium, Totam Rem Aperiam, Eaque Ipsa Quae Ab Illo
-            Inventore Veritatis Et Quasi Architecto Beatae Vitae Dicta
-          </p>
-        </div>
-
-        <div className="mt-4 lg:px-16 px-0">
-          {FAQS.map((faq, idx) => (
-            <Accordion key={idx} type="single" collapsible className="w-full">
-              <AccordionItem value={idx.toString()}>
-                <AccordionTrigger>{faq.question}</AccordionTrigger>
-                <AccordionContent>
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          ))}
+                  <p className="my-4 text-slate-200">
+                      Doloremque Laudantium, Totam Rem Aperiam, Eaque Ipsa Quae
+                      Ab Illo Inventore Veritatis Et Quasi Architecto Beatae
+                      Vitae Dicta
+                  </p>
+              </div>
+              <div className="mt-4 lg:px-16 px-0">
+                  {FAQS.map((faq, idx) => (
+                      <Accordion
+                          key={idx}
+                          type="single"
+                          collapsible
+                          className="w-full"
+                      >
+                          <AccordionItem value={idx.toString()}>
+                              <AccordionTrigger>
+                                  {faq.question}
+                              </AccordionTrigger>
+                              <AccordionContent>{faq.answer}</AccordionContent>
+                          </AccordionItem>
+                      </Accordion>
+                  ))}
+              </div>
           </div>
-        </div>
-    </section>
+      </section>
   );
 }
 
