@@ -21,37 +21,37 @@ function Features() {
 			Svg: Search,
 			title: 'Transparency and Audit Trail',
 			description:
-				'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus numquam ea!',
+				"We take your security seriously. Our platform ensures every step of your freelancing journey is recorded in a secure, immutable ledger. You'll have a complete audit trail of your work, so you can focus on what you do best.",
 		},
 		{
 			Svg: FileEdit,
 			title: 'User Registration and Onboarding',
 			description:
-				'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus numquam ea!',
+				'Becoming a part of our platform is a breeze. Register and onboard quickly to connect with freelancers and clients from all around the world. Your freelancing journey begins here!',
 		},
 		{
 			Svg: FileCheck2,
 			title: 'Task Creation and Assignment',
 			description:
-				'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus numquam ea!',
+				'Create tasks, specify requirements, and find the perfect freelancers for your projects. Our platform makes task creation and assignment a simple and efficient process. Get ready to see your ideas come to life!',
 		},
 		{
 			Svg: Newspaper,
 			title: 'Smart Contract Creation',
 			description:
-				'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus numquam ea!',
+				'Our platform simplifies contract creation. Establish clear terms, milestones, and payments with the security of blockchain technology. Your agreements are locked in, ensuring trust and fairness.',
 		},
 		{
 			Svg: BadgeCheck,
 			title: 'Task Completion Verification',
 			description:
-				'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus numquam ea!',
+				'Ensure the quality of work with our straightforward task completion verification process. Verify project milestones with ease and confidence, giving you peace of mind throughout the project.',
 		},
 		{
 			Svg: Banknote,
 			title: 'Instant Payment Release',
 			description:
-				'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus numquam ea!',
+				'Say goodbye to delayed payments. Our platform enables instant payment release upon task completion. No more waiting – get paid promptly for your hard work!',
 		},
 	];
 	return (
@@ -62,16 +62,17 @@ function Features() {
 						Kickstart your Freelancing
 					</h2>
 					<p className='my-4 text-slate-200'>
-						Lorem ipsum, dolor sit amet consectetur adipisicing
-						elit. Consequuntur aliquam doloribus nesciunt eos
-						fugiat. Vitae aperiam fugit consequuntur saepe laborum.
+						Jump into the World of Opportunities: Begin your
+						freelancing journey on our platform. Explore a wide
+						range of projects waiting for your skills and expertise.
+						It&apos;s time to kickstart your freelancing career and
+						unlock new horizons!
 					</p>
 				</div>
 				<div className='mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
 					{FEATURES.map((feat, idx) => (
-						<a
+						<div
 							className='block rounded-xl border-2 border-[#ffffff12] p-8 shadow-xl transition duration-300 hover:scale-105'
-							href='#'
 							key={idx}
 						>
 							<feat.Svg
@@ -86,7 +87,7 @@ function Features() {
 							<p className='mt-1 text-sm text-gray-200'>
 								{feat.description}
 							</p>
-						</a>
+						</div>
 						// <div key={idx} className="flex flex-col items-center">
 						//     <div className="mb-4">{feat.Svg}</div>
 						//     <h1 className="text-lg font-semibold">{feat.title}</h1>
