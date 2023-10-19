@@ -8,7 +8,8 @@ const nextConfig = {
         pathname:"**/*",
         protocol: "https"
       }
-    ]
+    ],
+    domains: ['github.com'],
   }
 }
 
