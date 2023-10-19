@@ -1,6 +1,9 @@
 import Head from 'next/head';
 import Header from '@/components/Header';
 import Hero from '@/components/home/Hero';
+import Features from '@/components/landing/Features';
+import Category from '@/components/landing/Category';
+import Faqs from '@/components/landing/Faqs';
 
 export default function Home() {
 	return (
@@ -11,6 +14,9 @@ export default function Home() {
 			<Header />
 			<main className='w-full font-work'>
 				<Hero />
+				<Features />
+				<Category />
+				<Faqs />
 			</main>
 		</div>
 	);
