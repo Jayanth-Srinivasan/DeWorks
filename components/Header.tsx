@@ -45,7 +45,7 @@ function Header() {
     },
   ];
   return (
-    <header className="px-4 md:p-0 sticky top-0 z-50 flex items-center justify-between md:px-16  lg:mx-auto">
+    <header className="px-4 bg-[#161616] md:p-0 sticky top-0 z-50 flex items-center justify-between md:px-16  lg:mx-auto">
       <Link href={"/"}>
         <h1 className="text-2xl font-semibold">DeWorks</h1>
       </Link>

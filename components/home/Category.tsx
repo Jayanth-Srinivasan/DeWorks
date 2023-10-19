@@ -164,11 +164,11 @@ function Category() {
   return (
     <section className="" id="features">
       <div className="mx-auto max-w-5xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
-        <div className="mx-auto max-w-lg text-center my-4">
+        {/* <div className="mx-auto max-w-lg text-center my-4">
           <h2 className="text-3xl font-bold sm:text-4xl">
             Explore the Worlds
           </h2>
-        </div>
+        </div> */}
         <div className="flex items-center justify-center flex-wrap gap-8 ">
             {
                 CATEGORY.map(({Svg, Title}, idx) => (

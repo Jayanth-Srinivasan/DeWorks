@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import Header from '@/components/Header';
 import Hero from '@/components/home/Hero';
-import Features from '@/components/landing/Features';
-import Category from '@/components/landing/Category';
-import Faqs from '@/components/landing/Faqs';
+import Features from '@/components/home/Features';
+import Category from '@/components/home/Category';
+import Faqs from '@/components/home/Faqs';
 
 export default function Home() {
 	return (
@@ -11,8 +11,8 @@ export default function Home() {
 			<Head>
 				<title>DeWorks</title>
 			</Head>
-			<Header />
 			<main className='w-full font-work'>
+			  <Header />
 				<Hero />
 				<Features />
 				<Category />
