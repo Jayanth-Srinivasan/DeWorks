@@ -1,5 +1,5 @@
-import Header from '@/components/Header'
-import React from 'react'
+import Header from "@/components/Header";
+import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -10,9 +10,42 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
+import { title } from "process";
 
 const PostAJob = () => {
+    const [values, setValues] = useState({
+        title: "",
+        location: "",
+        category: "",
+        pay: 0,
+        experience: "",
+        description: "",
+    });
+
+    const handleValuesChange =
+        (key: keyof typeof values) =>
+        (e: React.ChangeEvent<HTMLInputElement  | HTMLTextAreaElement>) => {
+            setValues((prev) => {
+                return { ...prev, [key]: e.target.value };
+            });
+        };
+
+    const handleCategorySelect = (val: string) => {
+        setValues((prev) => {
+            return { ...prev, category: val };
+        });
+    };
+    const handleExperienceSelect = (val: string) => {
+        setValues((prev) => {
+            return { ...prev, experience: val };
+        });
+    };
+
+    const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        console.log(values);
+    };
 
     const CATEGORIES = [
         "Accounting",
@@ -22,14 +55,10 @@ const PostAJob = () => {
         "Design & Development",
         "Finance Managment",
         "Project Management",
-        "Customer Service"
+        "Customer Service",
     ];
 
-    const EXPERIENCE = [
-        "Beginner",
-        "Intermediate",
-        "Expert"
-    ];
+    const EXPERIENCE = ["Beginner", "Intermediate", "Expert"];
 
     return (
         <main className="min-h-screen bg-[url('/assets/line-bg.png')] w-full font-outfit bg-app-grey-dark text-stone-200">
@@ -40,18 +69,23 @@ const PostAJob = () => {
                         Post a Job
                     </h2>
                     <p className="text-slate-200 md:text-lg">
-                        Define your project&apos;s requirements, set milestones, and
-                        discuss terms with ease. Find the right expertise for
-                        your tasks with our streamlined posting process.
+                        Define your project&apos;s requirements, set milestones,
+                        and discuss terms with ease. Find the right expertise
+                        for your tasks with our streamlined posting process.
                     </p>
                 </div>
-                <div className="w-full p-4 font-outfit bg-app-grey-light flex flex-col gap-4 rounded border border-white/10">
+                <form
+                    onSubmit={handleSubmit}
+                    className="w-full p-4 font-outfit bg-app-grey-light flex flex-col gap-4 rounded border border-white/10"
+                >
                     <h1 className="font-bold text-xl md:text-2xl">
                         Job Details
                     </h1>
                     <div className="grid w-full items-center gap-1.5">
                         <Label htmlFor="title">Job Title</Label>
                         <Input
+                            onChange={handleValuesChange("title")}
+                            required
                             type="text"
                             className="h-12"
                             placeholder="Title of the job"
@@ -60,6 +94,8 @@ const PostAJob = () => {
                     <div className="grid w-full items-center gap-1.5">
                         <Label htmlFor="location">Location</Label>
                         <Input
+                            onChange={handleValuesChange("location")}
+                            required
                             type="text"
                             className="h-12"
                             placeholder="Leave it blank for remote location"
@@ -69,7 +105,7 @@ const PostAJob = () => {
                         <Label htmlFor="category" className="mb-2">
                             Category
                         </Label>
-                        <Select>
+                        <Select required onValueChange={handleCategorySelect}>
                             <SelectTrigger className="w-full h-12">
                                 <SelectValue placeholder="Select" />
                             </SelectTrigger>
@@ -85,6 +121,8 @@ const PostAJob = () => {
                     <div className="grid w-full items-center gap-1.5">
                         <Label htmlFor="location">Job Pay</Label>
                         <Input
+                            required
+                            onChange={handleValuesChange("pay")}
                             type="number"
                             className="h-12"
                             placeholder="How much for the work"
@@ -94,7 +132,7 @@ const PostAJob = () => {
                         <Label htmlFor="experiance" className="mb-2">
                             Experiance Level
                         </Label>
-                        <Select>
+                        <Select required onValueChange={handleExperienceSelect}>
                             <SelectTrigger className="w-full h-12">
                                 <SelectValue placeholder="Select" />
                             </SelectTrigger>
@@ -110,15 +148,19 @@ const PostAJob = () => {
                     <div className="grid w-full gap-1.5">
                         <Label htmlFor="message">Job Description</Label>
                         <Textarea
+                            required
+                            onChange={handleValuesChange("description")}
                             placeholder="Type your job description"
                             id="message"
                         />
                     </div>
-                    <Button className="h-12">Post this Job</Button>
-                </div>
+                    <Button type="submit" className="h-12">
+                        Post this Job
+                    </Button>
+                </form>
             </section>
         </main>
     );
-}
+};
 
-export default PostAJob
+export default PostAJob;
