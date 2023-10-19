@@ -35,8 +35,8 @@ function Header() {
 						</li>
 					))}
 					<li>
-						<Button variant={'outline'} className='h-12'>
-							Post a Job
+						<Button variant={'outline'} className='h-12' asChild>
+							<Link href={'/post-a-job'}>Post a Job</Link>
 						</Button>
 					</li>
 				</ul>
@@ -72,8 +72,11 @@ function Header() {
 											<Button
 												variant={'outline'}
 												className='mt-2'
+												asChild
 											>
-												Post a Job
+												<Link href={'/post-a-job'}>
+													Post a Job
+												</Link>
 											</Button>
 										</li>
 									</ul>
