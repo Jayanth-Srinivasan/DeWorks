@@ -4,8 +4,8 @@ import { Instagram, Linkedin, Mail, Twitter } from 'lucide-react';
 
 function Footer() {
 	return (
-		<footer id='contact' className=''>
-			<div className='lg:mx-auto lg:max-w-[1440px] p-4 md:px-16'>
+		<footer id='contact' className='bg-app-grey-light'>
+			<div className='lg:mx-auto lg:max-w-[1440px] p-4'>
 				<div className='flex flex-col items-stretch justify-start'>
 					<div className='w-full border-b border-white/20 p-2 md:p-4'>
 						<div className='flex flex-col items-center justify-between md:items-start lg:flex-row'>

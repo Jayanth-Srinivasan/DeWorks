@@ -5,7 +5,7 @@ import { MapPin } from "lucide-react";
 
 function Postings() {
     return (
-        <section className="font-outfit" id="postings">
+        <section className="font-outfit bg-[url('/assets/line-bg.png')]" id="postings">
             <div className="mx-auto max-w-screen-xl px-4 py-8 md:py-12 md:px-6 lg:py-16 lg:px-8">
                 <div className="mx-auto  text-left">
                     <h2 className="text-3xl lg:text-5xl font-bold">
