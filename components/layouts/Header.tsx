@@ -1,12 +1,12 @@
 import Link from "next/link";
 import React from "react";
 import {
-    Sheet,
-    SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { Button } from "../ui/button";
@@ -23,17 +23,17 @@ function Header() {
             <div className="font-normal">
                 <ul className=" lg:flex lg:gap-4 text-center text-md xl:text-lg items-center hidden">
                     {NAVBAR_NAVIGATION.map((link) => (
-                        <li key={`nav-desktop-link-${link.link}`} className="">
-                            <Button
-                                variant={"secondary"}
-                                asChild
-                                className="rounded border-0 transition-colors hover:bg-app-grey-light h-12 duration-300 ease-in-out"
-                            >
-                                <Link href={link.link} target={link.target}>
-                                    {link.title}
-                                </Link>
-                            </Button>
-                        </li>
+                      <li key={`nav-mobile-link-${link.link}`} className="p-2">
+                        <Button
+                          variant={"secondary"}
+                          asChild
+                          className="rounded border-0 transition-colors hover:bg-app-grey-light h-12 duration-300 ease-in-out"
+                        >
+                          <Link href={link.link} target={link.target}>
+                            {link.title}
+                          </Link>
+                        </Button>
+                      </li>
                     ))}
                     <li>
                         <ConnectButton.Custom>
