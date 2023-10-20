@@ -17,6 +17,11 @@ const ABI = [
         type: "string",
       },
       {
+        internalType: "string",
+        name: "email",
+        type: "string",
+      },
+      {
         internalType: "address",
         name: "walletAddress",
         type: "address",
@@ -161,6 +166,11 @@ const ABI = [
         type: "string",
       },
       {
+        internalType: "string",
+        name: "email",
+        type: "string",
+      },
+      {
         internalType: "address",
         name: "walletAddress",
         type: "address",
@@ -248,6 +258,11 @@ const ABI = [
           {
             internalType: "string",
             name: "description",
+            type: "string",
+          },
+          {
+            internalType: "string",
+            name: "email",
             type: "string",
           },
           {
@@ -351,6 +366,6 @@ const ABI = [
   },
 ];
 
-export const contractAddress = "0xF97ab610b4262270d834e6CF321928f81c93C424";
+export const contractAddress = "0x753f7e810aA74eB8dA9d6D3649e2F0F46d7d03F7";
 
 export default ABI;
