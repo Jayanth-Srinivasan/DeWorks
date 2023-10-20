@@ -1,5 +1,6 @@
 export const POSTINGS: Posting[] = [
 	{
+		id: '1',
 		category: 'Design & Development',
 		title: 'Freelance Project Manager',
 		location: 'Austin, TX',
@@ -27,6 +28,7 @@ export const POSTINGS: Posting[] = [
 		},
 	},
 	{
+		id: '2',
 		category: 'Customer Service',
 		title: 'Customer Support Representative',
 		location: 'Remote',
@@ -54,6 +56,7 @@ export const POSTINGS: Posting[] = [
 		},
 	},
 	{
+		id: '3',
 		category: 'Finance Management',
 		title: 'Financial Analysis and Reporting',
 		location: 'Chicago, IL',
@@ -80,8 +83,8 @@ export const POSTINGS: Posting[] = [
 			image: 'https://api.dicebear.com/7.x/open-peeps/svg?seed=John+Doe&face=awe,blank,calm,cheeky,cute,driven,eatingHappy,lovingGrin1,lovingGrin2,old,smile,smileBig,smileLOL',
 		},
 	},
-
 	{
+		id: '4',
 		category: 'Healthcare',
 		title: 'Registered Nurse',
 		location: 'New York, NY',
@@ -109,6 +112,7 @@ export const POSTINGS: Posting[] = [
 		},
 	},
 	{
+		id: '5',
 		category: 'Design & Development',
 		title: 'Network Security Analyst',
 		location: 'Dallas, TX',
@@ -136,6 +140,7 @@ export const POSTINGS: Posting[] = [
 		},
 	},
 	{
+		id: '6',
 		category: 'Marketing & Finance',
 		title: 'Content Marketing Specialist',
 		location: 'San Diego, CA',
@@ -163,6 +168,7 @@ export const POSTINGS: Posting[] = [
 		},
 	},
 	{
+		id: '7',
 		category: 'Education',
 		title: 'Elementary School Teacher',
 		location: 'Denver, CO',
@@ -190,6 +196,7 @@ export const POSTINGS: Posting[] = [
 		},
 	},
 	{
+		id: '8',
 		category: 'Engineering',
 		title: 'Civil Engineer',
 		location: 'Seattle, WA',
@@ -217,6 +224,7 @@ export const POSTINGS: Posting[] = [
 		},
 	},
 	{
+		id: '9',
 		category: 'Marketing & Finance',
 		title: 'Sales Account Executive',
 		location: 'Chicago, IL',
@@ -244,6 +252,7 @@ export const POSTINGS: Posting[] = [
 		},
 	},
 	{
+		id: '10',
 		category: 'Design & Development',
 		title: 'Front-End Web Developer',
 		location: 'Remote',
@@ -271,6 +280,7 @@ export const POSTINGS: Posting[] = [
 		},
 	},
 	{
+		id: '11',
 		category: 'Healthcare',
 		title: 'Medical Laboratory Technician',
 		location: 'Miami, FL',
@@ -298,6 +308,7 @@ export const POSTINGS: Posting[] = [
 		},
 	},
 	{
+		id: '12',
 		category: 'Marketing & Finance',
 		title: 'Digital Marketing Manager',
 		location: 'London, UK',
@@ -325,6 +336,7 @@ export const POSTINGS: Posting[] = [
 		},
 	},
 	{
+		id: '13',
 		category: 'Business & Consulting',
 		title: 'Management Consultant',
 		location: 'Washington, D.C.',

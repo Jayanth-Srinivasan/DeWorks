@@ -3,6 +3,7 @@ import { Button } from '../ui/button';
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
 import { POSTINGS } from '@/constants/postings';
+import Link from 'next/link';
 
 function Postings() {
 	return (
@@ -62,8 +63,11 @@ function Postings() {
 							<Button
 								variant={'secondary'}
 								className='h-12 text-base'
+								asChild
 							>
-								View Posting
+								<Link href={`/posting/${post.id}`}>
+									View Posting
+								</Link>
 							</Button>
 						</div>
 					))}

@@ -123,8 +123,11 @@ const FindAJob = () => {
 								<Button
 									variant={'secondary'}
 									className='h-12 text-base mt-auto'
+									asChild
 								>
-									View Posting
+									<Link href={`/posting/${job.id}`}>
+										View Posting
+									</Link>
 								</Button>
 							</div>
 						))}

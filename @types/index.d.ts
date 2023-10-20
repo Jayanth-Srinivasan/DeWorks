@@ -1,4 +1,5 @@
 type Posting = Readonly<{
+	id: string;
 	category: Category;
 	title: string;
 	location: string;
