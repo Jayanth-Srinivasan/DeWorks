@@ -15,7 +15,6 @@ import Link from 'next/link';
 const IndividualPostingPage: NextPage<
 	InferGetStaticPropsType<typeof getStaticProps>
 > = ({ post }) => {
-	console.log(post);
 	return (
 		<main className="h-full bg-[url('/assets/line-bg.png')] w-full font-outfit bg-app-grey-dark text-stone-200">
 			<Header />
