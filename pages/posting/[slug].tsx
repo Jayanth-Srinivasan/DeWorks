@@ -11,10 +11,19 @@ import { POSTINGS } from '@/constants/postings';
 import { Banknote, BarChart, Briefcase, Calendar, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import axios from 'axios';
 
 const IndividualPostingPage: NextPage<
 	InferGetStaticPropsType<typeof getStaticProps>
 > = ({ post }) => {
+	const sendPostingRequestNotification = async () => {
+		try {
+			const res = await axios.post('/api/notification');
+			console.log(res);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 	return (
 		<main className="h-full bg-[url('/assets/line-bg.png')] w-full font-outfit bg-app-grey-dark text-stone-200">
 			<Header />
@@ -131,6 +140,7 @@ const IndividualPostingPage: NextPage<
 							variant={'outline'}
 							className='h-12 text-base mt-4 w-full'
 							asChild
+							onClick={sendPostingRequestNotification}
 						>
 							<Link href={`#`}>Apply Now</Link>
 						</Button>
