@@ -1,51 +1,54 @@
-import "@/styles/globals.css";
-import type { AppProps } from "next/app";
-import { Outfit, Work_Sans } from "next/font/google";
+import '@/styles/globals.css';
+import type { AppProps } from 'next/app';
+import { Outfit, Work_Sans } from 'next/font/google';
 
-import "@rainbow-me/rainbowkit/styles.css";
-import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
-import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { mainnet, polygon, optimism, arbitrum, base, zora } from "wagmi/chains";
+import '@rainbow-me/rainbowkit/styles.css';
+import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
+// @ts-ignore
+import { configureChains, createConfig, WagmiConfig } from 'wagmi';
+// @ts-ignore
+import { mainnet, polygon, optimism, arbitrum, base, zora } from 'wagmi/chains';
 
-import { publicProvider } from "wagmi/providers/public";
+// @ts-ignore
+import { publicProvider } from 'wagmi/providers/public';
 
 const { chains, publicClient } = configureChains(
-  [mainnet, polygon, optimism, arbitrum, base, zora],
-  [publicProvider()]
+	[mainnet, polygon, optimism, arbitrum, base, zora],
+	[publicProvider()]
 );
 
 const { connectors } = getDefaultWallets({
-  appName: "deworks",
-  projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_ID!,
-  chains,
+	appName: 'deworks',
+	projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_ID!,
+	chains,
 });
 
 const wagmiConfig = createConfig({
-  autoConnect: true,
-  connectors,
-  publicClient,
+	autoConnect: true,
+	connectors,
+	publicClient,
 });
 
 const outfit = Outfit({
-  style: ["normal"],
-  subsets: ["latin"],
-  variable: "--font-outfit",
+	style: ['normal'],
+	subsets: ['latin'],
+	variable: '--font-outfit',
 });
 
 const workSans = Work_Sans({
-  style: ["italic", "normal"],
-  subsets: ["latin"],
-  variable: "--font-work-sans",
+	style: ['italic', 'normal'],
+	subsets: ['latin'],
+	variable: '--font-work-sans',
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <main className={`${outfit.variable} ${workSans.variable}`}>
-      <WagmiConfig config={wagmiConfig}>
-        <RainbowKitProvider chains={chains}>
-          <Component {...pageProps} />
-        </RainbowKitProvider>
-      </WagmiConfig>
-    </main>
-  );
+	return (
+		<main className={`${outfit.variable} ${workSans.variable}`}>
+			<WagmiConfig config={wagmiConfig}>
+				<RainbowKitProvider chains={chains}>
+					<Component {...pageProps} />
+				</RainbowKitProvider>
+			</WagmiConfig>
+		</main>
+	);
 }
