@@ -17,7 +17,7 @@ function Postings() {
 					</h2>
 				</div>
 				<div className='mt-8 md:mt-12 lg:mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
-					{POSTINGS.map((post, idx) => (
+					{POSTINGS.slice(0, 6).map((post, idx) => (
 						<div
 							className='w-full flex flex-col gap-8 hover:-translate-y-1 transition-all duration-300 bg-app-grey-light p-4 md:p-8 rounded border border-white/10'
 							key={idx}
