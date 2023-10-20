@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --experimental-https",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -15,6 +15,10 @@
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-switch": "^1.0.3",
+    "@rainbow-me/rainbowkit": "^1.1.2",
+    "@walletconnect/modal": "^2.6.2",
+    "@walletconnect/web3wallet": "^1.9.2",
+    "@web3modal/wagmi": "^3.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-react": "^0.288.0",
@@ -22,7 +26,9 @@
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^1.14.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "viem": "^1.16.6",
+    "wagmi": "^1.4.4"
   },
   "devDependencies": {
     "@types/node": "^20",
