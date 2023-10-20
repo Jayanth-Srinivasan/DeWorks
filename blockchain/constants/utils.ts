@@ -3,16 +3,13 @@ import ABI, { contractAddress } from "./usersABI";
 
 const rpcUrl =
   "https://polygon-mumbai.infura.io/v3/4458cf4d1689497b9a38b1d6bbf05e78";
-const provider = new ethers.JsonRpcProvider(rpcUrl);
-const wallet = new ethers.Wallet(
-  process.env.NEXT_PUBLIC_WALLET_PRIVATE_KEY!,
-  provider
-);
-
+const provider = new ethers.providers.JsonRpcProvider(rpcUrl);
+const wallet = new ethers.Wallet(process.env.NEXT_PUBLIC_WALLET_PRIVATE_KEY!, provider);
 export default provider;
 
 async function checkUserExists(address: string) {
   try {
+    console.log(address)
     const contract = new ethers.Contract(contractAddress, ABI, provider);
     const userExists = await contract.userExists(address);
 
@@ -34,28 +31,26 @@ async function checkUserExists(address: string) {
 
 async function addClientData(
   yourName: string,
-  CompanyName: string,
+  companyName: string,
   description: string,
+  email: string,
   walletAddress: string,
-  email: string
 ) {
   try {
     const contract = new ethers.Contract(contractAddress, ABI, wallet);
-
-    // Send the transaction to add client data
     const transaction = await contract.addOrUpdateClientData(
       yourName,
-      CompanyName,
+      companyName,
       description,
       email,
       walletAddress
     );
-
     await transaction.wait();
-
     console.log("Client data added successfully.");
+    return Promise.resolve();
   } catch (error) {
     console.error("Error:", error);
+    return Promise.reject();
   }
 }
 

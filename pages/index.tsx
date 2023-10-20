@@ -25,8 +25,8 @@ export default function Home() {
         if (res === "not-found") {
           router.replace("/onboarding");
         } else {
-          if (res === "client") router.replace("/dashboard/client");
-          else router.replace("/dashboard/freelancer");
+          if (res === "client") router.replace("/onboarding/client");
+          else router.replace("/onboarding/freelancer");
         }
       });
     }
