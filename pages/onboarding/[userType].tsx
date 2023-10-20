@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { useAccount } from "wagmi";
+import { addClientData } from "@/blockchain/constants/utils";
 
 function UserType() {
     const router = useRouter();
@@ -94,6 +96,23 @@ function UserType() {
     ];
 
   const EXPERIENCE = ["Beginner", "Intermediate", "Expert"];
+
+  const { isConnected, address } = useAccount();
+
+  const addClientToChain = () => {
+    if (isConnected) {
+      addClientData(
+        clientData.name,
+        clientData.company,
+        clientData.description,
+        address!,
+        clientData.email
+      ).then(() => {
+        router.push("/clientDashboard");
+      });
+    }
+  };
+
   return (
     <main className="min-h-screen bg-[url('/assets/line-bg.png')] w-full font-outfit bg-app-grey-dark text-stone-200">
       <section className="p-4 md:px-16 lg:max-w-4xl lg:mx-auto font-outfit py-[50px] md:py-[80px]">
@@ -166,11 +185,7 @@ function UserType() {
                   </SelectContent>
                 </Select>
               </div>
-              <Button
-                onClick={() => router.push("/dashboard/client")}
-                type="submit"
-                className="h-12"
-              >
+              <Button onClick={addClientToChain} type="submit" className="h-12">
                 Join
               </Button>
             </form>

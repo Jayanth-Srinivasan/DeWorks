@@ -1,11 +1,20 @@
 import { Building2, Users2 } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/router";
+import ConnectWalletButton from "@/components/connectWalletButton";
+import { useAccount } from "wagmi";
 
 function Onboarding() {
   const [userType, setUserType] = useState<String>("");
+  const { isConnected, address } = useAccount();
   const router = useRouter();
+
+  useEffect(() => {
+    if (!isConnected) {
+      router.replace("/");
+    }
+  }, [address]);
   return (
     <main className="min-h-screen bg-[url('/assets/line-bg.png')] w-full font-outfit bg-app-grey-dark text-stone-200 flex justify-center items-center h-screen">
       <section className="p-4 md:px-16 lg:max-w-4xl lg:mx-auto font-outfit py-[50px] md:py-[80px]">
@@ -19,43 +28,44 @@ function Onboarding() {
             streamlined posting process.
           </p>
         </div>
-      <div className="w-full md:p-16 p-4 font-outfit bg-app-grey-light flex flex-col gap-4 rounded border border-white/10">
-        <div className="flex md:flex-row flex-col gap-4 mt-4">
-          <div
-            onClick={() => setUserType("client")}
-            className={`flex flex-col gap-4 p-12 border md:text-lg text-base font-medium  rounded-md transition-all duration-300 cursor-pointer shadow hover:-translate-y-1 hover:border-app-slate-blue/50 ${
-              userType === "client"
-                ? "border-app-slate-blue"
-                : "border-slate-100/50"
-            } }`}
-          >
-            <Building2 strokeWidth={1.5} size={32} />
-            <span className="text-lg">
-              I&apos;m a client, hiring for a project
-            </span>
+        <div className="w-full md:p-16 p-4 font-outfit bg-app-grey-light flex flex-col gap-4 rounded border border-white/10">
+          <div className="flex md:flex-row flex-col gap-4 mt-4">
+            <div
+              onClick={() => setUserType("client")}
+              className={`flex flex-col gap-4 p-12 border md:text-lg text-base font-medium  rounded-md transition-all duration-300 cursor-pointer shadow hover:-translate-y-1 hover:border-app-slate-blue/50 ${
+                userType === "client"
+                  ? "border-app-slate-blue"
+                  : "border-slate-100/50"
+              } }`}
+            >
+              <Building2 strokeWidth={1.5} size={32} />
+              <span className="text-lg">
+                I&apos;m a client, hiring for a project
+              </span>
+            </div>
+            <div
+              onClick={() => setUserType("freelancer")}
+              className={`flex flex-col gap-4 p-12 border md:text-lg text-base font-medium  rounded-md transition-all duration-300 cursor-pointer shadow hover:-translate-y-1 hover:border-app-slate-blue/50 ${
+                userType === "freelancer"
+                  ? "border-app-slate-blue"
+                  : "border-slate-100/50"
+              } }`}
+            >
+              <Users2 strokeWidth={1.5} size={32} />
+              I&apos;m a freelancer, looking for work
+            </div>
           </div>
-          <div
-            onClick={() => setUserType("freelancer")}
-            className={`flex flex-col gap-4 p-12 border md:text-lg text-base font-medium  rounded-md transition-all duration-300 cursor-pointer shadow hover:-translate-y-1 hover:border-app-slate-blue/50 ${
-              userType === "freelancer"
-                ? "border-app-slate-blue"
-                : "border-slate-100/50"
-            } }`}
-          >
-            <Users2 strokeWidth={1.5} size={32} />
-            I&apos;m a freelancer, looking for work
+          <div className="mt-4">
+            <Button
+              variant={"outline"}
+              className="w-full"
+              onClick={() => router.push(`/onboarding/${userType}`)}
+            >
+              {userType === "" ? "Pick One" : `Join as ${userType}`}
+            </Button>
+            <ConnectWalletButton className="w-full flex justify-center mt-5" />
           </div>
         </div>
-        <div className="mt-4">
-          <Button
-            variant={"outline"}
-            className="w-full"
-            onClick={() => router.push(`/onboarding/${userType}`)}
-          >
-            {userType === "" ? "Pick One" : `Join as ${userType}`}
-          </Button>
-        </div>
-      </div>
       </section>
     </main>
   );
