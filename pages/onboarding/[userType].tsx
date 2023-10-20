@@ -97,7 +97,7 @@ function UserType() {
   return (
     <main className="min-h-screen bg-[url('/assets/line-bg.png')] w-full font-outfit bg-app-grey-dark text-stone-200">
       <section className="p-4 md:px-16 lg:max-w-4xl lg:mx-auto font-outfit py-[50px] md:py-[80px]">
-        {router.query.userType === "Client" ? (
+        {router.query.userType === "client" ? (
           <>
             <div className="mx-auto flex flex-col gap-4 text-center pb-[50px] md:pb-[80px]">
               <h2 className="text-3xl lg:text-5xl font-bold">Join as Client</h2>
@@ -167,7 +167,7 @@ function UserType() {
                 </Select>
               </div>
               <Button
-                onClick={() => router.push("/clientDashboard")}
+                onClick={() => router.push("/dashboard/client")}
                 type="submit"
                 className="h-12"
               >
@@ -258,7 +258,7 @@ function UserType() {
                 />
               </div>
               <Button
-                onClick={() => router.push("/freelancerDashboard")}
+                onClick={() => router.push("/dashboard/freelancer")}
                 type="submit"
                 className="h-12"
               >
