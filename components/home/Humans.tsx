@@ -35,7 +35,7 @@ const Humans = () => {
 					>
 						<Image
 							src={person.src}
-							className='w-16 md:w-24 lg:w-40 group-hover:drop-shadow-[0_35px_35px_rgba(255,255,255,0.25)] transition-all duration-300'
+							className='w-16 md:w-24 lg:w-40 group-hover:drop-shadow-[0_35px_35px_rgba(255,255,255,0.10)] transition-all duration-300'
 							alt={person.convo}
 							width={100}
 							height={100}
