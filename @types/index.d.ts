@@ -1,10 +1,13 @@
 type Posting = Readonly<{
+	id: string;
 	category: Category;
 	title: string;
 	location: string;
 	pay: number;
 	experience: Experience;
-	description: string;
+	description: string[];
+	responsibilities: string[];
+	benefits: string[];
 	client: {
 		name: string;
 		image: string;
@@ -20,4 +23,7 @@ type Category =
 	| 'Design & Development'
 	| 'Finance Management'
 	| 'Project Management'
-	| 'Customer Service';
+	| 'Customer Service'
+	| 'Healthcare'
+	| 'Education'
+	| 'Engineering';

@@ -14,9 +14,12 @@ const FindAJob = () => {
 		'Human Research',
 		'Marketing & Finance',
 		'Design & Development',
-		'Finance Managment',
+		'Finance Management',
 		'Project Management',
 		'Customer Service',
+		'Healthcare',
+		'Education',
+		'Engineering',
 	];
 	const EXPERIENCE = ['Beginner', 'Intermediate', 'Expert'];
 	return (
@@ -120,8 +123,11 @@ const FindAJob = () => {
 								<Button
 									variant={'secondary'}
 									className='h-12 text-base mt-auto'
+									asChild
 								>
-									View Posting
+									<Link href={`/posting/${job.id}`}>
+										View Posting
+									</Link>
 								</Button>
 							</div>
 						))}
