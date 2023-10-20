@@ -149,10 +149,9 @@ const IndividualPostingPage: NextPage<
 							<Button
 								variant={'outline'}
 								className='h-12 text-base mt-4 w-full'
-								asChild
 								onClick={sendPostingRequestNotification}
 							>
-								<Link href={`#`}>Apply Now</Link>
+								Apply Now
 							</Button>
 						</div>
 					</div>
