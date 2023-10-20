@@ -62,7 +62,7 @@ function Postings() {
 							</div>
 							<Button
 								variant={'secondary'}
-								className='h-12 text-base'
+								className='h-12 text-base mt-auto'
 								asChild
 							>
 								<Link href={`/posting/${post.id}`}>
