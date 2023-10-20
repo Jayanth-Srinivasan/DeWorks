@@ -13,6 +13,9 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import axios from 'axios';
 import Head from 'next/head';
+import { useEffect } from 'react';
+import { useAccount } from 'wagmi';
+import { useRouter } from 'next/router';
 
 const IndividualPostingPage: NextPage<
 	InferGetStaticPropsType<typeof getStaticProps>
@@ -25,6 +28,16 @@ const IndividualPostingPage: NextPage<
 			console.log(error);
 		}
 	};
+
+	const { isConnected, address } = useAccount();
+	const router = useRouter();
+
+	useEffect(() => {
+		if (!isConnected) {
+			router.replace('/');
+		}
+	}, [address]);
+
 	return (
 		<>
 			<Head>
@@ -149,9 +162,10 @@ const IndividualPostingPage: NextPage<
 							<Button
 								variant={'outline'}
 								className='h-12 text-base mt-4 w-full'
+								asChild
 								onClick={sendPostingRequestNotification}
 							>
-								Apply Now
+								<Link href={`#`}>Apply Now</Link>
 							</Button>
 						</div>
 					</div>

@@ -13,7 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useAccount } from "wagmi";
-import { addClientData } from "@/blockchain/constants/utils";
+import { addClientData, addFreelancerData } from "@/blockchain/constants/utils";
 
 function UserType() {
     const router = useRouter();
@@ -45,25 +45,14 @@ function UserType() {
                 return { ...prev, [key]: e.target.value };
             });
         };
-
-    const handleClientCategorySelect = (val: string) => {
-        setClientData((prev) => {
-            return { ...prev, category: val };
-        });
-    };
     const handleFreelancerCategorySelect = (val: string) => {
         setFreelancerData((prev) => {
             return { ...prev, category: val };
         });
     };
-    const handleBudgetSelect = (val: string) => {
-        setClientData((prev) => {
-            return { ...prev, budget: val };
-        });
-    };
     const handleExperienceSelect = (val: string) => {
         setFreelancerData((prev) => {
-            return { ...prev, budget: val };
+            return { ...prev, experience: val };
         });
     };
 
@@ -75,6 +64,7 @@ function UserType() {
     const handleFreelancerSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log(freelancerData);
+        addFreelancerToChain();
     };
 
     const CATEGORIES = [
@@ -107,9 +97,24 @@ function UserType() {
                 clientData.email,
                 clientData.company,
                 clientData.description,
-                address!,
+                address!
             ).then(() => {
                 router.push("/dashboard/client");
+            });
+        }
+    };
+
+    const addFreelancerToChain = () => {
+        if (isConnected) {
+            addFreelancerData(
+                freelancerData.name,
+                freelancerData.email,
+                freelancerData.category,
+                freelancerData.experience,
+                freelancerData.skills,
+                address!
+            ).then(() => {
+                router.replace("/find-a-job");
             });
         }
     };
@@ -288,9 +293,7 @@ function UserType() {
                                 />
                             </div>
                             <Button
-                                onClick={() =>
-                                    router.push("/dashboard/freelancer")
-                                }
+                                onClick={() => handleFreelancerSubmit}
                                 type="submit"
                                 className="h-12"
                             >
