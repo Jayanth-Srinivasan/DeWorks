@@ -11,7 +11,6 @@ import {
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { title } from 'process';
 import Footer from '@/components/layouts/Footer';
 
 const PostAJob = () => {

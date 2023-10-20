@@ -1,68 +1,63 @@
-import React from "react";
-
-
-
-import { useRouter } from "next/router";
+import { Building2, Users2 } from "lucide-react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-
+import { useRouter } from "next/router";
 
 function Onboarding() {
-    const router = useRouter();
-    const handleOnboarding = (e: any) => {
-        e.preventDefault();
-        var newUser = {
-            name: e.target[0].value.trim(),
-            email: e.target[1].value.trim(),
-        }
-        alert(JSON.stringify(newUser));
-        router.push("/onboarding/cof");
-
-    }
+  const [userType, setUserType] = useState<String>("");
+  const router = useRouter();
   return (
-    <div className="mx-auto w-full h-full">
-      <div className="text-center my-10 p-4">
-        <h1 className="text-4xl font-bold text-center">Join the Chain</h1>
-        <p className="text-md">
-          Handsome met debating sir dwelling age material. As style lived he
-          worse dried
-        </p>
-      </div>
-      <div className="flex items-center justify-center">
-        <div className="flex flex-col items-center overflow-hidden w-full h-full">
-          <form
-            className="p-6 md:p-10 border-2 border-app-grey-light bg-app-grey-light w-full lg:max-w-3xl lg:mx-auto lg:w-full "
-            //   onSubmit={(e) => addNewUser(e)}
-            onSubmit={(e) => handleOnboarding(e)}
+    <main className="min-h-screen bg-[url('/assets/line-bg.png')] w-full font-outfit bg-app-grey-dark text-stone-200 flex justify-center items-center h-screen">
+      <section className="p-4 md:px-16 lg:max-w-4xl lg:mx-auto font-outfit py-[50px] md:py-[80px]">
+        <div className="mx-auto flex flex-col gap-4 text-center pb-[50px] md:pb-[80px]">
+          <h2 className="text-3xl lg:text-5xl font-bold">
+            Join as a client or freelancer
+          </h2>
+          <p className="text-slate-200 md:text-lg">
+            Define your project&apos;s requirements, set milestones, and discuss
+            terms with ease. Find the right expertise for your tasks with our
+            streamlined posting process.
+          </p>
+        </div>
+      <div className="w-full md:p-16 p-4 font-outfit bg-app-grey-light flex flex-col gap-4 rounded border border-white/10">
+        <div className="flex md:flex-row flex-col gap-4 mt-4">
+          <div
+            onClick={() => setUserType("Client")}
+            className={`flex flex-col gap-4 p-12 border-2 md:text-lg text-base font-medium  rounded-md transition-all duration-300 cursor-pointer shadow hover:scale-105 hover:border-app-slate-blue/50 ${
+              userType === "Client"
+                ? "border-app-slate-blue"
+                : "border-slate-100/50"
+            } }`}
           >
-            <div className="mb-4">
-              <h3 className="text-lg md:text-xl font-semibold">
-                Personal Details
-              </h3>
-            </div>
-            <div className="flex flex-col gap-2 my-4">
-              <Label htmlFor="name" className="text-left font-semibold">
-                Name
-              </Label>
-              <Input id="name" placeholder="Full Name" />
-            </div>
-            <div className="flex flex-col gap-2 my-4">
-              <Label htmlFor="email" className="text-left font-semibold">
-                Email
-              </Label>
-
-              <Input id="email" placeholder="Email" />
-            </div>
-            <div className="mt-8 ">
-              <Button type="submit" variant={"default"} className="w-full">
-                Proceed
-              </Button>
-            </div>
-          </form>
+            <Building2 strokeWidth={1.5} size={32} />
+            <span className="text-lg">
+              I&apos;m a client, hiring for a project
+            </span>
+          </div>
+          <div
+            onClick={() => setUserType("Freelancer")}
+            className={`flex flex-col gap-4 p-12 border-2 md:text-lg text-base font-medium  rounded-md transition-all duration-300 cursor-pointer shadow hover:scale-105 hover:border-app-slate-blue/50 ${
+              userType === "Freelancer"
+                ? "border-app-slate-blue"
+                : "border-slate-100/50"
+            } }`}
+          >
+            <Users2 strokeWidth={1.5} size={32} />
+            I&apos;m a freelancer, looking for work
+          </div>
+        </div>
+        <div className="mt-4">
+          <Button
+            variant={"default"}
+            className="bg-blue-500 w-full hover:bg-blue-600 transition-all duration-300 text-white"
+            onClick={() => router.push(`/onboarding/${userType}`)}
+          >
+            {userType === "" ? "Pick One" : `Join as ${userType}`}
+          </Button>
         </div>
       </div>
-    </div>
+      </section>
+    </main>
   );
 }
 
