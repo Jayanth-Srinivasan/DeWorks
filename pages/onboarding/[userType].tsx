@@ -166,7 +166,11 @@ function UserType() {
                   </SelectContent>
                 </Select>
               </div>
-              <Button type="submit" className="h-12">
+              <Button
+                onClick={() => router.push("/clientDashboard")}
+                type="submit"
+                className="h-12"
+              >
                 Join
               </Button>
             </form>
@@ -253,7 +257,11 @@ function UserType() {
                   id="skills"
                 />
               </div>
-              <Button type="submit" className="h-12">
+              <Button
+                onClick={() => router.push("/freelancerDashboard")}
+                type="submit"
+                className="h-12"
+              >
                 Join
               </Button>
             </form>

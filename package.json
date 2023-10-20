@@ -19,6 +19,7 @@
     "@walletconnect/modal": "^2.6.2",
     "@walletconnect/web3wallet": "^1.9.2",
     "@web3modal/wagmi": "^3.1.0",
+    "@radix-ui/react-tabs": "^1.0.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-react": "^0.288.0",

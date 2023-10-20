@@ -22,9 +22,9 @@ function Onboarding() {
       <div className="w-full md:p-16 p-4 font-outfit bg-app-grey-light flex flex-col gap-4 rounded border border-white/10">
         <div className="flex md:flex-row flex-col gap-4 mt-4">
           <div
-            onClick={() => setUserType("Client")}
-            className={`flex flex-col gap-4 p-12 border-2 md:text-lg text-base font-medium  rounded-md transition-all duration-300 cursor-pointer shadow hover:scale-105 hover:border-app-slate-blue/50 ${
-              userType === "Client"
+            onClick={() => setUserType("client")}
+            className={`flex flex-col gap-4 p-12 border md:text-lg text-base font-medium  rounded-md transition-all duration-300 cursor-pointer shadow hover:-translate-y-1 hover:border-app-slate-blue/50 ${
+              userType === "client"
                 ? "border-app-slate-blue"
                 : "border-slate-100/50"
             } }`}
@@ -35,9 +35,9 @@ function Onboarding() {
             </span>
           </div>
           <div
-            onClick={() => setUserType("Freelancer")}
-            className={`flex flex-col gap-4 p-12 border-2 md:text-lg text-base font-medium  rounded-md transition-all duration-300 cursor-pointer shadow hover:scale-105 hover:border-app-slate-blue/50 ${
-              userType === "Freelancer"
+            onClick={() => setUserType("freelancer")}
+            className={`flex flex-col gap-4 p-12 border md:text-lg text-base font-medium  rounded-md transition-all duration-300 cursor-pointer shadow hover:-translate-y-1 hover:border-app-slate-blue/50 ${
+              userType === "freelancer"
                 ? "border-app-slate-blue"
                 : "border-slate-100/50"
             } }`}
@@ -48,8 +48,8 @@ function Onboarding() {
         </div>
         <div className="mt-4">
           <Button
-            variant={"default"}
-            className="bg-blue-500 w-full hover:bg-blue-600 transition-all duration-300 text-white"
+            variant={"outline"}
+            className="w-full"
             onClick={() => router.push(`/onboarding/${userType}`)}
           >
             {userType === "" ? "Pick One" : `Join as ${userType}`}

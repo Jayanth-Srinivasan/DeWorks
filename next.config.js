@@ -9,7 +9,7 @@ const nextConfig = {
         protocol: "https"
       }
     ],
-    domains: ['github.com'],
+    domains: ['github.com','images.unsplash.com'],
   }
 }
 
