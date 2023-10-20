@@ -4,94 +4,94 @@ import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
 function UserType() {
-  const router = useRouter();
-  const [clientData, setClientData] = useState({
-    name: "",
-    email: "",
-    category: "",
-    budegt: "",
-  });
-  const [freelancerData, setFreelancerData] = useState({
-    name: "",
-    email: "",
-    category: "",
-    experience: "",
-	skills: "",
-  });
+    const router = useRouter();
+    const [clientData, setClientData] = useState({
+        name: "",
+        email: "",
+        company: "",
+        description: "",
+    });
+    const [freelancerData, setFreelancerData] = useState({
+        name: "",
+        email: "",
+        category: "",
+        experience: "",
+        skills: "",
+    });
 
-  const handleClientValuesChange =
-    (key: keyof typeof clientData) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setClientData((prev) => {
-        return { ...prev, [key]: e.target.value };
-      });
+    const handleClientValuesChange =
+        (key: keyof typeof clientData) =>
+        (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+            setClientData((prev) => {
+                return { ...prev, [key]: e.target.value };
+            });
+        };
+    const handleFreelancerValuesChange =
+        (key: keyof typeof freelancerData) =>
+        (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+            setFreelancerData((prev) => {
+                return { ...prev, [key]: e.target.value };
+            });
+        };
+
+    const handleClientCategorySelect = (val: string) => {
+        setClientData((prev) => {
+            return { ...prev, category: val };
+        });
     };
-  const handleFreelancerValuesChange =
-    (key: keyof typeof freelancerData) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setFreelancerData((prev) => {
-        return { ...prev, [key]: e.target.value };
-      });
+    const handleFreelancerCategorySelect = (val: string) => {
+        setFreelancerData((prev) => {
+            return { ...prev, category: val };
+        });
+    };
+    const handleBudgetSelect = (val: string) => {
+        setClientData((prev) => {
+            return { ...prev, budget: val };
+        });
+    };
+    const handleExperienceSelect = (val: string) => {
+        setFreelancerData((prev) => {
+            return { ...prev, budget: val };
+        });
     };
 
-  const handleClientCategorySelect = (val: string) => {
-    setClientData((prev) => {
-      return { ...prev, category: val };
-    });
-  };
-  const handleFreelancerCategorySelect = (val: string) => {
-    setFreelancerData((prev) => {
-      return { ...prev, category: val };
-    });
-  };
-  const handleBudgetSelect = (val: string) => {
-    setClientData((prev) => {
-      return { ...prev, budget: val };
-    });
-  };
-  const handleExperienceSelect = (val: string) => {
-    setFreelancerData((prev) => {
-      return { ...prev, budget: val };
-    });
-  };
+    const handleClientSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log(clientData);
+    };
+    const handleFreelancerSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log(freelancerData);
+    };
 
-  const handleClientSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(clientData);
-  };
-  const handleFreelancerSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(freelancerData);
-  };
-
-  const CATEGORIES = [
-    "Accounting",
-    "Business & Consulting",
-    "Human Research",
-    "Marketing & Finance",
-    "Design & Development",
-    "Finance Managment",
-    "Project Management",
-    "Customer Service",
-    "Others",
-  ];
-  const BUDGET = [
-    "0-5000",
-    "5000-10000",
-    "10000-50000",
-    "50000-100000",
-    "100000+",
-  ];
+    const CATEGORIES = [
+        "Accounting",
+        "Business & Consulting",
+        "Human Research",
+        "Marketing & Finance",
+        "Design & Development",
+        "Finance Managment",
+        "Project Management",
+        "Customer Service",
+        "Others",
+    ];
+    const BUDGET = [
+        "0-5000",
+        "5000-10000",
+        "10000-50000",
+        "50000-100000",
+        "100000+",
+    ];
 
   const EXPERIENCE = ["Beginner", "Intermediate", "Expert"];
   return (

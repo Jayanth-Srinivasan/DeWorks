@@ -62,7 +62,7 @@ const PostAJob = () => {
 
 	return (
 		<main className="min-h-screen bg-[url('/assets/line-bg.png')] w-full font-outfit bg-app-grey-dark text-stone-200">
-			<Header />
+			{/* <Header /> */}
 			<section className='p-4 md:px-16 lg:max-w-4xl lg:mx-auto font-outfit py-[50px] md:py-[80px]'>
 				<div className='mx-auto flex flex-col gap-4 text-center pb-[50px] md:pb-[80px]'>
 					<h2 className='text-3xl lg:text-5xl font-bold'>
@@ -95,7 +95,6 @@ const PostAJob = () => {
 						<Label htmlFor='location'>Location</Label>
 						<Input
 							onChange={handleValuesChange('location')}
-							required
 							type='text'
 							className='h-12'
 							placeholder='Leave it blank for remote location'
@@ -159,7 +158,7 @@ const PostAJob = () => {
 					</Button>
 				</form>
 			</section>
-			<Footer />
+			{/* <Footer /> */}
 		</main>
 	);
 };
