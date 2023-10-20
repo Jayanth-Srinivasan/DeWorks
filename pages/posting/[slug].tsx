@@ -165,7 +165,7 @@ const IndividualPostingPage: NextPage<
 								asChild
 								onClick={sendPostingRequestNotification}
 							>
-								<Link href={`#`}>Apply Now</Link>
+								Apply Now
 							</Button>
 						</div>
 					</div>
