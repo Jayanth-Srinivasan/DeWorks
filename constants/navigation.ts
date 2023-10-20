@@ -29,11 +29,6 @@ const COMMON_NAVIGATION: NavdataCollection = [
 		link: '/#faqs',
 		target: '_self',
 	},
-	{
-		title: 'Find a Job',
-		link: '/find-a-job',
-		target: '_self',
-	},
 ];
 
 export const NAVBAR_NAVIGATION = [...COMMON_NAVIGATION];
