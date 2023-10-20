@@ -2,8 +2,10 @@ import React from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { CalendarRange } from "lucide-react";
+import { useRouter } from "next/router";
 
 function ClientPostings() {
+  const router = useRouter();
   return (
     <section className="mt-4 font-outfit">
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -51,7 +53,7 @@ function ClientPostings() {
                   </div>
                 </div>
               </div>
-              <Button variant={"secondary"} className="h-12 w-full text-base">
+              <Button onClick={() => router.push(`/dashboard/client/posting/${idx}`)} variant={"secondary"} className="h-12 w-full text-base">
                 View Posting
               </Button>
             </div>
