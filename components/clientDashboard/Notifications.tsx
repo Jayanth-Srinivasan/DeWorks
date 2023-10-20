@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { CalendarRange } from "lucide-react";
+import ViewFreelancerProfileDialog from "./ViewFreelancerProfileDialog";
 
 function Notifications() {
   return (
@@ -35,9 +36,7 @@ function Notifications() {
                   </div>
                 </div>
               </div>
-              <Button variant={"secondary"} className="h-12 w-full text-base">
-                View Profile
-              </Button>
+              <ViewFreelancerProfileDialog />
             </div>
           ))}
       </div>

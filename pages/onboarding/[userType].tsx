@@ -4,11 +4,11 @@ import React, { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -16,84 +16,84 @@ import { useAccount } from "wagmi";
 import { addClientData } from "@/blockchain/constants/utils";
 
 function UserType() {
-  const router = useRouter();
-  const [clientData, setClientData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    description: "",
-  });
-  const [freelancerData, setFreelancerData] = useState({
-    name: "",
-    email: "",
-    category: "",
-    experience: "",
-    skills: "",
-  });
+    const router = useRouter();
+    const [clientData, setClientData] = useState({
+        name: "",
+        email: "",
+        company: "",
+        description: "",
+    });
+    const [freelancerData, setFreelancerData] = useState({
+        name: "",
+        email: "",
+        category: "",
+        experience: "",
+        skills: "",
+    });
 
-  const handleClientValuesChange =
-    (key: keyof typeof clientData) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setClientData((prev) => {
-        return { ...prev, [key]: e.target.value };
-      });
+    const handleClientValuesChange =
+        (key: keyof typeof clientData) =>
+        (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+            setClientData((prev) => {
+                return { ...prev, [key]: e.target.value };
+            });
+        };
+    const handleFreelancerValuesChange =
+        (key: keyof typeof freelancerData) =>
+        (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+            setFreelancerData((prev) => {
+                return { ...prev, [key]: e.target.value };
+            });
+        };
+
+    const handleClientCategorySelect = (val: string) => {
+        setClientData((prev) => {
+            return { ...prev, category: val };
+        });
     };
-  const handleFreelancerValuesChange =
-    (key: keyof typeof freelancerData) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setFreelancerData((prev) => {
-        return { ...prev, [key]: e.target.value };
-      });
+    const handleFreelancerCategorySelect = (val: string) => {
+        setFreelancerData((prev) => {
+            return { ...prev, category: val };
+        });
+    };
+    const handleBudgetSelect = (val: string) => {
+        setClientData((prev) => {
+            return { ...prev, budget: val };
+        });
+    };
+    const handleExperienceSelect = (val: string) => {
+        setFreelancerData((prev) => {
+            return { ...prev, budget: val };
+        });
     };
 
-  const handleClientCategorySelect = (val: string) => {
-    setClientData((prev) => {
-      return { ...prev, category: val };
-    });
-  };
-  const handleFreelancerCategorySelect = (val: string) => {
-    setFreelancerData((prev) => {
-      return { ...prev, category: val };
-    });
-  };
-  const handleBudgetSelect = (val: string) => {
-    setClientData((prev) => {
-      return { ...prev, budget: val };
-    });
-  };
-  const handleExperienceSelect = (val: string) => {
-    setFreelancerData((prev) => {
-      return { ...prev, budget: val };
-    });
-  };
+    const handleClientSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log(clientData);
+    };
+    const handleFreelancerSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log(freelancerData);
+    };
 
-  const handleClientSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(clientData);
-  };
-  const handleFreelancerSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(freelancerData);
-  };
-
-  const CATEGORIES = [
-    "Accounting",
-    "Business & Consulting",
-    "Human Research",
-    "Marketing & Finance",
-    "Design & Development",
-    "Finance Managment",
-    "Project Management",
-    "Customer Service",
-    "Others",
-  ];
-  const BUDGET = [
-    "0-5000",
-    "5000-10000",
-    "10000-50000",
-    "50000-100000",
-    "100000+",
-  ];
+    const CATEGORIES = [
+        "Accounting",
+        "Business & Consulting",
+        "Human Research",
+        "Marketing & Finance",
+        "Design & Development",
+        "Finance Managment",
+        "Project Management",
+        "Customer Service",
+        "Others",
+    ];
+    const BUDGET = [
+        "0-5000",
+        "5000-10000",
+        "10000-50000",
+        "50000-100000",
+        "100000+",
+    ];
 
   const EXPERIENCE = ["Beginner", "Intermediate", "Expert"];
 
@@ -116,7 +116,7 @@ function UserType() {
   return (
     <main className="min-h-screen bg-[url('/assets/line-bg.png')] w-full font-outfit bg-app-grey-dark text-stone-200">
       <section className="p-4 md:px-16 lg:max-w-4xl lg:mx-auto font-outfit py-[50px] md:py-[80px]">
-        {router.query.userType === "Client" ? (
+        {router.query.userType === "client" ? (
           <>
             <div className="mx-auto flex flex-col gap-4 text-center pb-[50px] md:pb-[80px]">
               <h2 className="text-3xl lg:text-5xl font-bold">Join as Client</h2>
@@ -273,7 +273,7 @@ function UserType() {
                 />
               </div>
               <Button
-                onClick={() => router.push("/freelancerDashboard")}
+                onClick={() => router.push("/dashboard/freelancer")}
                 type="submit"
                 className="h-12"
               >
