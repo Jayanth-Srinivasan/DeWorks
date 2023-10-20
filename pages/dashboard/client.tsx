@@ -2,11 +2,15 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import ClientPostings from "@/components/clientDashboard/ClientPostings";
+import Notifications from "@/components/clientDashboard/Notifications";
+import Freelancers from "@/components/clientDashboard/Freelancers";
 
 function clientDashboard() {
   return (
     <main className="min-h-screen bg-[url('/assets/line-bg.png')] w-full font-outfit bg-app-grey-dark text-stone-200">
-      <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="p-4 md:px-16 lg:max-w-7xl lg:mx-auto">
         <div className="flex items-center sm:justify-between sm:gap-4">
           <div className="flex flex-1 items-center justify-end gap-8">
             <button
@@ -31,7 +35,7 @@ function clientDashboard() {
             </button>
           </div>
         </div>
-        <div className="flex justify-between mt-8 items-center">
+        <div className="flex flex-col md:flex-row md:justify-between mt-8 md:items-center gap-4 md:gap-0">
           <div className="">
             <h1 className="text-3xl font-bold md:text-5xl">Dashboard</h1>
 
@@ -41,10 +45,30 @@ function clientDashboard() {
             </p>
           </div>
           <div>
-            <Button variant={"outline"} className="h-12" asChild>
+            <Button variant={"outline"} className="h-12 " asChild>
               <Link href={"/post-a-job"}>Post a Job</Link>
             </Button>
           </div>
+        </div>
+      </div>
+      <div className="p-4 md:px-16 lg:max-w-7xl lg:mx-auto py-[50px] md:py-[80px]">
+        <div className="w-full">
+          <Tabs defaultValue="postings" className="text-sm md:text-base w-full">
+            <TabsList className="w-full md:w-fit">
+              <TabsTrigger value="postings">Your Postings</TabsTrigger>
+              <TabsTrigger value="freelancers">Find Freelancers</TabsTrigger>
+              <TabsTrigger value="notification">Notification</TabsTrigger>
+            </TabsList>
+            <TabsContent value="postings">
+              <ClientPostings />
+            </TabsContent>
+            <TabsContent value="freelancers">
+              <Freelancers />
+            </TabsContent>
+            <TabsContent value="notification">
+              <Notifications />
+            </TabsContent>
+          </Tabs>
         </div>
       </div>
     </main>
