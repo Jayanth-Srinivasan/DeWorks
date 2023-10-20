@@ -1,19 +1,32 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ClientPostings from "@/components/clientDashboard/ClientPostings";
 import Notifications from "@/components/clientDashboard/Notifications";
 import Freelancers from "@/components/clientDashboard/Freelancers";
+import ConnectWalletButton from "@/components/connectWalletButton";
+import { useAccount } from "wagmi";
+import { useRouter } from "next/router";
 
-function clientDashboard() {
+function ClientDashboard() {
+
+  const { isConnected, address } = useAccount();
+  const router = useRouter();
+
+  useEffect(() => {
+      if (!isConnected) {
+          router.replace("/");
+      }
+  }, [address]);
+  
   return (
     <main className="min-h-screen bg-[url('/assets/line-bg.png')] w-full font-outfit bg-app-grey-dark text-stone-200">
       <div className="p-4 md:px-16 lg:max-w-7xl lg:mx-auto">
         <div className="flex items-center sm:justify-between sm:gap-4">
           <div className="flex flex-1 items-center justify-end gap-8">
-            <button
+            {/* <button
               type="button"
               className="group flex shrink-0 items-center rounded-lg transition"
             >
@@ -32,7 +45,8 @@ function clientDashboard() {
 
                 <span className="text-slate-300"> eric@frusciante.com </span>
               </p>
-            </button>
+            </button> */}
+            <ConnectWalletButton/>
           </div>
         </div>
         <div className="flex flex-col md:flex-row md:justify-between mt-8 md:items-center gap-4 md:gap-0">
@@ -75,4 +89,4 @@ function clientDashboard() {
   );
 }
 
-export default clientDashboard;
+export default ClientDashboard;

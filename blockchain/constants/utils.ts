@@ -9,16 +9,16 @@ export default provider;
 
 async function checkUserExists(address: string) {
   try {
-    console.log(address)
     const contract = new ethers.Contract(contractAddress, ABI, provider);
     const userExists = await contract.userExists(address);
+    console.log(userExists)
 
     if (userExists[0]) {
       console.log(
         `User with address ${userExists[1]} exists as a ${userExists[2]}`
       );
 
-      if (userExists[2] === "client") return "client";
+      if (userExists[1] === "client") return "client";
       else return "freelancer";
     } else {
       console.log(`User with address ${userExists[1]} does not exist.`);
@@ -53,5 +53,31 @@ async function addClientData(
     return Promise.reject();
   }
 }
+async function addFreelancerData(
+  name: string,
+  email: string,
+  category: string,
+  skills: string,
+  experience: string,
+  walletAddress: string,
+) {
+  try {
+    const contract = new ethers.Contract(contractAddress, ABI, wallet);
+    const transaction = await contract.addOrUpdateFreelancerData(
+      name,
+      email,
+      walletAddress,
+      category,
+      experience,
+      skills,
+    );
+    await transaction.wait();
+    console.log("Client data added successfully.");
+    return Promise.resolve();
+  } catch (error) {
+    console.error("Error:", error);
+    return Promise.reject();
+  }
+}
 
-export { checkUserExists, addClientData };
+export { checkUserExists, addClientData, addFreelancerData };
