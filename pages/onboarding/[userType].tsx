@@ -93,193 +93,183 @@ function UserType() {
         "100000+",
     ];
 
-    const EXPERIENCE = ["Beginner", "Intermediate", "Expert"];
-    return (
-        <main className="min-h-screen bg-[url('/assets/line-bg.png')] w-full font-outfit bg-app-grey-dark text-stone-200">
-            <section className="p-4 md:px-16 lg:max-w-4xl lg:mx-auto font-outfit py-[50px] md:py-[80px]">
-                {router.query.userType === "client" ? (
-                    <>
-                        <div className="mx-auto flex flex-col gap-4 text-center pb-[50px] md:pb-[80px]">
-                            <h2 className="text-3xl lg:text-5xl font-bold">
-                                Join as Client
-                            </h2>
-                            <p className="text-slate-200 md:text-lg">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Duis vel maximus justo, a
-                                accumsan neque. Donec magna diam, vestibulum a
-                                posuere vitae, lobortis in ipsum.
-                            </p>
-                        </div>
-                        <form
-                            onSubmit={handleClientSubmit}
-                            className="w-full p-4 font-outfit bg-app-grey-light flex flex-col gap-6 rounded border border-white/10"
-                        >
-                            <h1 className="font-bold text-xl md:text-2xl">
-                                Client Details
-                            </h1>
-                            <div className="grid w-full items-center gap-1.5">
-                                <Label htmlFor="name">Your Name</Label>
-                                <Input
-                                    onChange={handleClientValuesChange("name")}
-                                    required
-                                    type="text"
-                                    className="h-12"
-                                    placeholder="Enter your full name or Comapny name"
-                                />
-                            </div>
-                            <div className="grid w-full items-center gap-1.5">
-                                <Label htmlFor="email">Email</Label>
-                                <Input
-                                    onChange={handleClientValuesChange("email")}
-                                    required
-                                    type="email"
-                                    className="h-12"
-                                    placeholder="Enter your email  or Comapny email "
-                                />
-                            </div>
-                            <div className="grid w-full items-center gap-1.5">
-                                <Label htmlFor="company">Comapny Name</Label>
-                                <Input
-                                    onChange={handleClientValuesChange(
-                                        "company"
-                                    )}
-                                    type="text"
-                                    className="h-12"
-                                    placeholder="Leave it blank if an individual"
-                                />
-                            </div>
-                            <div className="grid w-full gap-1.5">
-                                <Label htmlFor="message">Company Description</Label>
-                                <Textarea
-                                    required
-                                    onChange={handleClientValuesChange(
-                                        "description"
-                                    )}
-                                    placeholder="Type your job description"
-                                    id="message"
-                                />
-                            </div>
-                            <Button
-                                onClick={() => router.push("/dashboard/client")}
-                                type="submit"
-                                className="h-12"
-                            >
-                                Join
-                            </Button>
-                        </form>
-                    </>
-                ) : (
-                    <>
-                        <div className="mx-auto flex flex-col gap-4 text-center pb-[50px] md:pb-[80px]">
-                            <h2 className="text-3xl lg:text-5xl font-bold">
-                                Join as Freelancer
-                            </h2>
-                            <p className="text-slate-200 md:text-lg">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Duis vel maximus justo, a
-                                accumsan neque. Donec magna diam, vestibulum a
-                                posuere vitae, lobortis in ipsum.
-                            </p>
-                        </div>
-                        <form
-                            onSubmit={handleFreelancerSubmit}
-                            className="w-full p-4 font-outfit bg-app-grey-light flex flex-col gap-6 rounded border border-white/10"
-                        >
-                            <h1 className="font-bold text-xl md:text-2xl">
-                                Freelancer Details
-                            </h1>
-                            <div className="grid w-full items-center gap-1.5">
-                                <Label htmlFor="name">Your Name</Label>
-                                <Input
-                                    onChange={handleFreelancerValuesChange(
-                                        "name"
-                                    )}
-                                    required
-                                    type="text"
-                                    className="h-12"
-                                    placeholder="Enter your full name"
-                                />
-                            </div>
-                            <div className="grid w-full items-center gap-1.5">
-                                <Label htmlFor="email">Your Email</Label>
-                                <Input
-                                    onChange={handleFreelancerValuesChange(
-                                        "email"
-                                    )}
-                                    required
-                                    type="email"
-                                    className="h-12"
-                                    placeholder="Enter your email"
-                                />
-                            </div>
-                            <div className="grid w-full items-center gap-1.5">
-                                <Label htmlFor="category" className="mb-2">
-                                    Which category suits you best?
-                                </Label>
-                                <Select
-                                    required
-                                    onValueChange={
-                                        handleFreelancerCategorySelect
-                                    }
-                                >
-                                    <SelectTrigger className="w-full h-12">
-                                        <SelectValue placeholder="Pick a Category" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        {CATEGORIES.map((item, idx) => (
-                                            <SelectItem key={idx} value={item}>
-                                                {item}
-                                            </SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                </Select>
-                            </div>
-                            <div className="grid w-full items-center gap-1.5">
-                                <Label htmlFor="experience" className="mb-2">
-                                    What is your experience level as freelancer?
-                                </Label>
-                                <Select
-                                    required
-                                    onValueChange={handleExperienceSelect}
-                                >
-                                    <SelectTrigger className="w-full h-12">
-                                        <SelectValue placeholder="Pick your experience level" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        {EXPERIENCE.map((item, idx) => (
-                                            <SelectItem key={idx} value={item}>
-                                                {item}
-                                            </SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                </Select>
-                            </div>
-                            <div className="grid w-full gap-1.5">
-                                <Label htmlFor="skills">Your Skills</Label>
-                                <Textarea
-                                    required
-                                    onChange={handleFreelancerValuesChange(
-                                        "skills"
-                                    )}
-                                    placeholder="Type your skills seperated by comma"
-                                    id="skills"
-                                />
-                            </div>
-                            <Button
-                                onClick={() =>
-                                    router.push("/dashboard/freelancer")
-                                }
-                                type="submit"
-                                className="h-12"
-                            >
-                                Join
-                            </Button>
-                        </form>
-                    </>
-                )}
-            </section>
-        </main>
-    );
+  const EXPERIENCE = ["Beginner", "Intermediate", "Expert"];
+  return (
+    <main className="min-h-screen bg-[url('/assets/line-bg.png')] w-full font-outfit bg-app-grey-dark text-stone-200">
+      <section className="p-4 md:px-16 lg:max-w-4xl lg:mx-auto font-outfit py-[50px] md:py-[80px]">
+        {router.query.userType === "client" ? (
+          <>
+            <div className="mx-auto flex flex-col gap-4 text-center pb-[50px] md:pb-[80px]">
+              <h2 className="text-3xl lg:text-5xl font-bold">Join as Client</h2>
+              <p className="text-slate-200 md:text-lg">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                vel maximus justo, a accumsan neque. Donec magna diam,
+                vestibulum a posuere vitae, lobortis in ipsum.
+              </p>
+            </div>
+            <form
+              onSubmit={handleClientSubmit}
+              className="w-full p-4 font-outfit bg-app-grey-light flex flex-col gap-6 rounded border border-white/10"
+            >
+              <h1 className="font-bold text-xl md:text-2xl">Client Details</h1>
+              <div className="grid w-full items-center gap-1.5">
+                <Label htmlFor="name">Your Name / Comapny Name</Label>
+                <Input
+                  onChange={handleClientValuesChange("name")}
+                  required
+                  type="text"
+                  className="h-12"
+                  placeholder="Enter your full name or Comapny name"
+                />
+              </div>
+              <div className="grid w-full items-center gap-1.5">
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  onChange={handleClientValuesChange("email")}
+                  required
+                  type="email"
+                  className="h-12"
+                  placeholder="Enter your email  or Comapny email "
+                />
+              </div>
+              <div className="grid w-full items-center gap-1.5">
+                <Label htmlFor="category" className="mb-2">
+                  What category you will be looking for?
+                </Label>
+                <Select required onValueChange={handleClientCategorySelect}>
+                  <SelectTrigger className="w-full h-12">
+                    <SelectValue placeholder="Pick a Category" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {CATEGORIES.map((item, idx) => (
+                      <SelectItem key={idx} value={item}>
+                        {item}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="grid w-full items-center gap-1.5">
+                <Label htmlFor="budget" className="mb-2">
+                  What is your budget range?
+                </Label>
+                <Select required onValueChange={handleBudgetSelect}>
+                  <SelectTrigger className="w-full h-12">
+                    <SelectValue placeholder="Pick a Budget" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {BUDGET.map((item, idx) => (
+                      <SelectItem key={idx} value={item}>
+                        {item}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <Button
+                onClick={() => router.push("/dashboard/client")}
+                type="submit"
+                className="h-12"
+              >
+                Join
+              </Button>
+            </form>
+          </>
+        ) : (
+          <>
+            <div className="mx-auto flex flex-col gap-4 text-center pb-[50px] md:pb-[80px]">
+              <h2 className="text-3xl lg:text-5xl font-bold">
+                Join as Freelancer
+              </h2>
+              <p className="text-slate-200 md:text-lg">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                vel maximus justo, a accumsan neque. Donec magna diam,
+                vestibulum a posuere vitae, lobortis in ipsum.
+              </p>
+            </div>
+            <form
+              onSubmit={handleFreelancerSubmit}
+              className="w-full p-4 font-outfit bg-app-grey-light flex flex-col gap-6 rounded border border-white/10"
+            >
+              <h1 className="font-bold text-xl md:text-2xl">
+                Freelancer Details
+              </h1>
+              <div className="grid w-full items-center gap-1.5">
+                <Label htmlFor="name">Your Name</Label>
+                <Input
+                  onChange={handleFreelancerValuesChange("name")}
+                  required
+                  type="text"
+                  className="h-12"
+                  placeholder="Enter your full name"
+                />
+              </div>
+              <div className="grid w-full items-center gap-1.5">
+                <Label htmlFor="email">Your Email</Label>
+                <Input
+                  onChange={handleFreelancerValuesChange("email")}
+                  required
+                  type="email"
+                  className="h-12"
+                  placeholder="Enter your email"
+                />
+              </div>
+              <div className="grid w-full items-center gap-1.5">
+                <Label htmlFor="category" className="mb-2">
+                  Which category suits you best?
+                </Label>
+                <Select required onValueChange={handleFreelancerCategorySelect}>
+                  <SelectTrigger className="w-full h-12">
+                    <SelectValue placeholder="Pick a Category" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {CATEGORIES.map((item, idx) => (
+                      <SelectItem key={idx} value={item}>
+                        {item}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="grid w-full items-center gap-1.5">
+                <Label htmlFor="experience" className="mb-2">
+                  What is your experience level as freelancer?
+                </Label>
+                <Select required onValueChange={handleExperienceSelect}>
+                  <SelectTrigger className="w-full h-12">
+                    <SelectValue placeholder="Pick your experience level" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {EXPERIENCE.map((item, idx) => (
+                      <SelectItem key={idx} value={item}>
+                        {item}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="grid w-full gap-1.5">
+                <Label htmlFor="skills">Your Skills</Label>
+                <Textarea
+                  required
+                  onChange={handleFreelancerValuesChange("skills")}
+                  placeholder="Type your skills seperated by comma"
+                  id="skills"
+                />
+              </div>
+              <Button
+                onClick={() => router.push("/dashboard/freelancer")}
+                type="submit"
+                className="h-12"
+              >
+                Join
+              </Button>
+            </form>
+          </>
+        )}
+      </section>
+    </main>
+  );
 }
 
 export default UserType;
