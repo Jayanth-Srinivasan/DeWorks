@@ -5,15 +5,21 @@ import { CalendarRange } from 'lucide-react';
 import { useRouter } from 'next/router';
 import { getAllPostData } from '@/blockchain/constants/utils';
 import { utils } from 'ethers';
+import { useAccount } from 'wagmi';
 
 function ClientPostings() {
 	const router = useRouter();
+	const { address } = useAccount();
 
 	const [postings, setPostings] = useState<Posting[]>([]);
 
 	useEffect(() => {
-		getAllPostData().then((data) => setPostings(data as Posting[]));
-	}, []);
+		getAllPostData().then((data) =>
+			setPostings(
+				(data as Posting[]).filter((post) => post.clientId === address)
+			)
+		);
+	}, [address]);
 
 	console.log(postings);
 
