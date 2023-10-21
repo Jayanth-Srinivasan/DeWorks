@@ -97,8 +97,8 @@ const FindAJob = () => {
 									<div className='text-base flex items-center gap-4'>
 										<p>
 											<span className='font-medium'>
-												{/* @ts-ignore */}
 												{utils.formatEther(
+													// @ts-ignore
 													job.payInMATIC
 												)}
 											</span>{' '}
