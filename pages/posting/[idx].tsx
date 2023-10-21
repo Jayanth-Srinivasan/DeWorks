@@ -90,6 +90,7 @@ const IndividualPostingPage = () => {
 					<div>
 						{/* @ts-ignore */}
 						<h1 className='text-3xl lg:text-5xl font-bold'>
+							{/* @ts-ignore */}
 							{post.title}
 						</h1>
 						{/* <p className="text-slate-200 text-lg font-medium md:text-xl mt-2">
