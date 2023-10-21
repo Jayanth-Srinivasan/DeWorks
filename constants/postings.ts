@@ -10,6 +10,7 @@ export const POSTINGS: Posting[] = [
 			'We are seeking a skilled freelance project manager to oversee a software development project in Austin, TX. As the project manager, you will be responsible for ensuring the successful completion of the project within the given budget and timeline. Your strong project planning, budgeting, and team coordination skills will be crucial in driving the project forward.',
 			'In this role, you will collaborate with cross-functional teams, including developers, designers, and stakeholders, to define project goals, allocate resources, and track progress. You will also be responsible for identifying and mitigating risks, resolving conflicts, and ensuring effective communication among team members.',
 		],
+		walletAddress: '0x69e0B652349429866C734aF8d96853F491DA2632',
 		responsibilities: [
 			'Develop and maintain a detailed project plan, including tasks, timelines, and dependencies.',
 			'Allocate resources and manage project budget to ensure efficient utilization of available resources.',
@@ -38,6 +39,7 @@ export const POSTINGS: Posting[] = [
 			'We are looking for an entry-level freelance customer support specialist to join our team. As a customer support representative, you will play a crucial role in ensuring customer satisfaction by promptly responding to inquiries, providing solutions, and maintaining a positive and helpful attitude.',
 			'In this role, you will handle customer interactions through various channels, such as phone, email, and chat. You will need to effectively troubleshoot and resolve customer issues, escalate complex problems when necessary, and document customer interactions for future reference.',
 		],
+		walletAddress: '0x69e0B652349429866C734aF8d96853F491DA2632',
 		responsibilities: [
 			'Respond to customer inquiries in a timely and professional manner.',
 			'Provide accurate and helpful information to customers to resolve their issues.',
@@ -66,6 +68,7 @@ export const POSTINGS: Posting[] = [
 			'We are seeking an experienced financial analyst to join our team in Chicago, IL. As a financial analyst, you will be responsible for conducting in-depth financial analysis, preparing reports, and providing valuable insights to support strategic decision-making.',
 			'In this role, you will analyze financial data, identify trends, and develop financial models to forecast future performance. You will also be responsible for preparing financial reports, including balance sheets, income statements, and cash flow statements, and presenting findings to key stakeholders.',
 		],
+		walletAddress: '0x69e0B652349429866C734aF8d96853F491DA2632',
 		responsibilities: [
 			'Conduct financial analysis and provide insights to support strategic decision-making.',
 			'Prepare accurate and timely financial reports, including balance sheets, income statements, and cash flow statements.',
@@ -94,6 +97,7 @@ export const POSTINGS: Posting[] = [
 			'We are seeking an experienced Registered Nurse to join our healthcare team in New York, NY. As a Registered Nurse, you will be responsible for providing high-quality patient care, administering medications, and collaborating with the healthcare staff to ensure the well-being of our patients.',
 			'In this role, you will work in a fast-paced healthcare environment, monitoring patient conditions, and providing compassionate care. Your nursing skills and commitment to patient care are essential in this role.',
 		],
+		walletAddress: '0x69e0B652349429866C734aF8d96853F491DA2632',
 		responsibilities: [
 			'Administer medications and treatments to patients as prescribed.',
 			'Assess and monitor patient conditions, documenting changes and vital signs.',
@@ -122,6 +126,7 @@ export const POSTINGS: Posting[] = [
 			'We are looking for an experienced Network Security Analyst to join our team in Dallas, TX. As a Network Security Analyst, you will be responsible for securing and monitoring our network infrastructure, identifying vulnerabilities, and implementing security measures to protect our data and systems.',
 			'In this role, you will work on the front lines of cybersecurity, ensuring the confidentiality and integrity of our network. Your expertise in network security and threat detection will be invaluable.',
 		],
+		walletAddress: '0x69e0B652349429866C734aF8d96853F491DA2632',
 		responsibilities: [
 			'Monitor network traffic for signs of security threats and intrusions.',
 			'Conduct security assessments, vulnerability scans, and penetration testing.',
@@ -150,6 +155,7 @@ export const POSTINGS: Posting[] = [
 			'We are seeking a talented Content Marketing Specialist to join our team in San Diego, CA. As a Content Marketing Specialist, you will be responsible for creating and promoting engaging content that resonates with our target audience, drives traffic, and supports our marketing goals.',
 			'In this role, you will craft compelling content, develop content strategies, and measure performance. Your creativity and ability to connect with our audience will be central to our marketing success.',
 		],
+		walletAddress: '0x69e0B652349429866C734aF8d96853F491DA2632',
 		responsibilities: [
 			'Create high-quality and engaging content, including blog posts, articles, and social media posts.',
 			'Develop and execute content marketing strategies to drive traffic and engagement.',
@@ -178,6 +184,7 @@ export const POSTINGS: Posting[] = [
 			'We are looking for a passionate Elementary School Teacher to join our school in Denver, CO. As a teacher, you will be responsible for creating engaging lesson plans, fostering a positive learning environment, and inspiring young minds to grow academically and socially.',
 			'In this role, you will be a vital part of shaping the future of your students. Your dedication to teaching and nurturing young learners is highly valued.',
 		],
+		walletAddress: '0x69e0B652349429866C734aF8d96853F491DA2632',
 		responsibilities: [
 			'Plan and deliver age-appropriate and engaging lessons.',
 			'Create a positive and inclusive classroom environment.',
@@ -206,6 +213,7 @@ export const POSTINGS: Posting[] = [
 			'We are seeking an experienced Civil Engineer to join our team in Seattle, WA. As a Civil Engineer, you will be responsible for designing, planning, and managing various civil engineering projects, including infrastructure and construction.',
 			'In this role, your engineering expertise and project management skills will be essential in delivering successful projects that benefit the community.',
 		],
+		walletAddress: '0x69e0B652349429866C734aF8d96853F491DA2632',
 		responsibilities: [
 			'Design and plan civil engineering projects, including roads, bridges, and utilities.',
 			'Manage project budgets, schedules, and collaborate with multidisciplinary teams.',
@@ -234,6 +242,7 @@ export const POSTINGS: Posting[] = [
 			'We are looking for a skilled Sales Account Executive to join our team in Chicago, IL. As a Sales Account Executive, you will be responsible for building and managing client relationships, generating sales leads, and achieving revenue targets.',
 			'In this role, your sales expertise, communication skills, and relationship-building abilities will be instrumental in our sales success.',
 		],
+		walletAddress: '0x69e0B652349429866C734aF8d96853F491DA2632',
 		responsibilities: [
 			'Identify and target potential clients and sales opportunities.',
 			'Manage client accounts, build relationships, and provide exceptional customer service.',
@@ -262,6 +271,7 @@ export const POSTINGS: Posting[] = [
 			'We are seeking a talented Front-End Web Developer to join our remote team. As a Front-End Web Developer, you will be responsible for creating and optimizing user interfaces, ensuring cross-browser compatibility, and collaborating with the development team to deliver exceptional web experiences.',
 			'In this role, your web development skills and creative problem-solving abilities will be essential to our web projects.',
 		],
+		walletAddress: '0x69e0B652349429866C734aF8d96853F491DA2632',
 		responsibilities: [
 			'Develop and optimize user interfaces for web applications and websites.',
 			'Ensure cross-browser and cross-platform compatibility.',
@@ -290,6 +300,7 @@ export const POSTINGS: Posting[] = [
 			'We are looking for a dedicated Medical Laboratory Technician to join our healthcare facility in Miami, FL. As a Medical Laboratory Technician, you will be responsible for conducting various medical tests, analyzing results, and ensuring the accuracy of diagnostic reports.',
 			'In this role, your attention to detail and knowledge of laboratory procedures will be crucial in delivering reliable medical information.',
 		],
+		walletAddress: '0x69e0B652349429866C734aF8d96853F491DA2632',
 		responsibilities: [
 			'Perform medical tests, including blood tests, urinalysis, and cultures.',
 			'Analyze test results, maintain records, and ensure the quality of laboratory data.',
@@ -318,6 +329,7 @@ export const POSTINGS: Posting[] = [
 			'We are seeking an experienced Digital Marketing Manager to join our team in London, UK. As a Digital Marketing Manager, you will be responsible for developing and implementing digital marketing strategies, managing campaigns, and analyzing performance to maximize online visibility and engagement.',
 			'In this role, your digital marketing expertise and data-driven approach will be critical in our online marketing success.',
 		],
+		walletAddress: '0x69e0B652349429866C734aF8d96853F491DA2632',
 		responsibilities: [
 			'Develop and execute digital marketing strategies across various channels.',
 			'Manage digital marketing campaigns, including SEO, SEM, and social media advertising.',
@@ -346,6 +358,7 @@ export const POSTINGS: Posting[] = [
 			'We are looking for an experienced Management Consultant to join our team in Washington, D.C. As a Management Consultant, you will be responsible for providing strategic advice, conducting analysis, and offering solutions to clients to improve their business performance.',
 			"In this role, your consulting expertise and problem-solving abilities will be central to our client's success.",
 		],
+		walletAddress: '0x69e0B652349429866C734aF8d96853F491DA2632',
 		responsibilities: [
 			'Analyze client business operations, identify areas for improvement, and provide recommendations.',
 			'Develop and implement strategies to enhance business performance and efficiency.',

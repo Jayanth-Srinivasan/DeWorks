@@ -20,17 +20,22 @@ import { useRouter } from 'next/router';
 const IndividualPostingPage: NextPage<
 	InferGetStaticPropsType<typeof getStaticProps>
 > = ({ post }) => {
+	const { isConnected, address } = useAccount();
+	const router = useRouter();
+
 	const sendPostingRequestNotification = async () => {
 		try {
-			const res = await axios.post('/api/notification');
+			const res = await axios.post('/api/notification', {
+				receiverAddress: post.walletAddress,
+				senderAddress: address,
+				title: `New Job Request.`,
+				body: `${address} is requesting to work on ${post.title}`,
+			});
 			console.log(res);
 		} catch (error) {
 			console.log(error);
 		}
 	};
-
-	const { isConnected, address } = useAccount();
-	const router = useRouter();
 
 	useEffect(() => {
 		if (!isConnected) {
@@ -162,7 +167,6 @@ const IndividualPostingPage: NextPage<
 							<Button
 								variant={'outline'}
 								className='h-12 text-base mt-4 w-full'
-								asChild
 								onClick={sendPostingRequestNotification}
 							>
 								Apply Now
