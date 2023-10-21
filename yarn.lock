@@ -1340,6 +1340,50 @@
     rpc-websockets "^7.5.1"
     superstruct "^0.14.2"
 
+"@spheron/browser-upload@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@spheron/browser-upload/-/browser-upload-2.0.1.tgz#aac60f6941ae7d780283dbf9e2301de302b599a9"
+  integrity sha512-k0eCsggHazSzQAZ4Yi40bg4dGi5J3/9eh5wDP7QufRsMqVzGLnHtqWW9L0FPufa6POuUHV5BQsRfMCH67R7Okw==
+  dependencies:
+    "@spheron/core" "2.0.0"
+    "@spheron/encryption" "1.0.0"
+    form-data "^4.0.0"
+    jwt-decode "^3.1.2"
+
+"@spheron/core@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@spheron/core/-/core-2.0.0.tgz#79d3019bb53c7bd29ecbee57e82d4329d66b9692"
+  integrity sha512-BkOxHoUVGH6AE1FzyO1Ut7lSoXWxMUKWDlnann5kCQ3qJYPOZ38MpUNt4UxuKqlyYuk6mvX2lI08HX6iRgO4Cw==
+  dependencies:
+    axios "1.1.2"
+    eventsource "^2.0.2"
+    p-limit "^3.0.0"
+
+"@spheron/core@2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@spheron/core/-/core-2.0.4.tgz#ef5e3a11086aca8181e2d6ff0aaedb5a31575d45"
+  integrity sha512-lbGwz1NF2oaZB+zHskpt5D5M+xmR+4fStV1n2889HMXBXYIUPSHk8SoNdZbn1x38aHNO7XPAulKO6Rs/P290QQ==
+  dependencies:
+    async-lock "^1.4.0"
+    axios "1.1.2"
+    eventsource "^2.0.2"
+    p-limit "^3.0.0"
+
+"@spheron/encryption@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@spheron/encryption/-/encryption-1.0.0.tgz#fb81256b419cc861cb0c49e41ee3a443331befe0"
+  integrity sha512-Teald+lhbi1MtwZ6tbWeg4gbWCvQFuRTmCx4jhxoE48tZmHByJNu9ZBHIcsNjCWNzkwg8lA+FQO4HZoAxLF5KQ==
+
+"@spheron/storage@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@spheron/storage/-/storage-2.0.3.tgz#76b8ba2e6cd7618e7fc7e13943ccba0bb08bda60"
+  integrity sha512-OHS7ni3xk0xe8C+GHOP0+OVc8r6T/J8uVDCtxsDuHZNeEWiquTnEMmlhNty5YbHwnXTlrM0uClyPyABDtNVhMg==
+  dependencies:
+    "@spheron/core" "2.0.4"
+    "@spheron/encryption" "1.0.0"
+    form-data "^4.0.0"
+    multiformats "^9.9.0"
+
 "@stablelib/aead@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@stablelib/aead/-/aead-1.0.1.tgz#c4b1106df9c23d1b867eb9b276d8f42d5fc4c0c3"
@@ -2508,6 +2552,11 @@ ast-types-flow@^0.0.7:
   resolved "https://registry.yarnpkg.com/ast-types-flow/-/ast-types-flow-0.0.7.tgz#f70b735c6bca1a5c9c22d982c3e39e7feba3bdad"
   integrity sha512-eBvWn1lvIApYMhzQMsu9ciLfkBY499mFZlNqG+/9WR7PVlroQw0vG30cOQQbaKz3sCEc44TAOu2ykzqXSNnwag==
 
+async-lock@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/async-lock/-/async-lock-1.4.0.tgz#c8b6630eff68fbbdd8a5b6eb763dac3bfbb8bf02"
+  integrity sha512-coglx5yIWuetakm3/1dsX9hxCNox22h7+V80RQOu2XUUMidtArxKoZoOtHUPuR84SycKTXzgGzAUR5hJxujyJQ==
+
 async-mutex@^0.2.6:
   version "0.2.6"
   resolved "https://registry.yarnpkg.com/async-mutex/-/async-mutex-0.2.6.tgz#0d7a3deb978bc2b984d5908a2038e1ae2e54ff40"
@@ -2553,6 +2602,15 @@ axe-core@^4.6.2:
   version "4.8.2"
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.8.2.tgz#2f6f3cde40935825cf4465e3c1c9e77b240ff6ae"
   integrity sha512-/dlp0fxyM3R8YW7MFzaHWXrf4zzbr0vaYb23VBFCl83R7nWNPg/yaQw2Dc8jzCMmDVLhSdzH8MjrsuIUuvX+6g==
+
+axios@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.1.2.tgz#8b6f6c540abf44ab98d9904e8daf55351ca4a331"
+  integrity sha512-bznQyETwElsXl2RK7HLLwb5GPpOLlycxHCtrpDR/4RqqBzjARaOTo3jz4IgtntWUYee7Ne4S8UHd92VCuzPaWA==
+  dependencies:
+    follow-redirects "^1.15.0"
+    form-data "^4.0.0"
+    proxy-from-env "^1.1.0"
 
 axios@^0.27.2:
   version "0.27.2"
@@ -3615,6 +3673,11 @@ events@^3.3.0:
   resolved "https://registry.yarnpkg.com/events/-/events-3.3.0.tgz#31a95ad0a924e2d2c419a813aeb2c4e878ea7400"
   integrity sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==
 
+eventsource@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/eventsource/-/eventsource-2.0.2.tgz#76dfcc02930fb2ff339520b6d290da573a9e8508"
+  integrity sha512-IzUmBGPR3+oUG9dUeXynyNmf91/3zUSJg1lCktzKw47OXuhco54U3r9B7O4XX+Rb1Itm9OZ2b0RkTs10bICOxA==
+
 eyes@^0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/eyes/-/eyes-0.1.8.tgz#62cf120234c683785d902348a800ef3e0cc20bc0"
@@ -4442,6 +4505,11 @@ jsonparse@^1.2.0:
     object.assign "^4.1.4"
     object.values "^1.1.6"
 
+jwt-decode@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/jwt-decode/-/jwt-decode-3.1.2.tgz#3fb319f3675a2df0c2895c8f5e9fa4b67b04ed59"
+  integrity sha512-UfpWE/VZn0iP50d8cz9NrZLM9lSWhcJ+0Gt/nm4by88UL+J1SiKN8/5dkjMmbEzwL2CAe+67GsegCbIKtbp75A==
+
 keccak@^3.0.1:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/keccak/-/keccak-3.0.4.tgz#edc09b89e633c0549da444432ecf062ffadee86d"
@@ -4765,7 +4833,7 @@ ms@^3.0.0-canary.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-3.0.0-canary.1.tgz#c7b34fbce381492fd0b345d1cf56e14d67b77b80"
   integrity sha512-kh8ARjh8rMN7Du2igDRO9QJnqCb2xYTJxyQYK7vJJS4TvLLmsbyhiKpSW+t+y26gyOyMd0riphX0GeWKU3ky5g==
 
-multiformats@9.9.0, multiformats@^9.4.2:
+multiformats@9.9.0, multiformats@^9.4.2, multiformats@^9.9.0:
   version "9.9.0"
   resolved "https://registry.yarnpkg.com/multiformats/-/multiformats-9.9.0.tgz#c68354e7d21037a8f1f8833c8ccd68618e8f1d37"
   integrity sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg==
@@ -4970,7 +5038,7 @@ p-limit@^2.2.0:
   dependencies:
     p-try "^2.0.0"
 
-p-limit@^3.0.2:
+p-limit@^3.0.0, p-limit@^3.0.2:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-3.1.0.tgz#e1daccbe78d0d1388ca18c64fea38e3e57e3706b"
   integrity sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==
