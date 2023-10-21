@@ -1,3 +1,4 @@
+import { getAllPostData } from '@/blockchain/constants/utils';
 import Footer from '@/components/layouts/Footer';
 import Header from '@/components/layouts/Header';
 import { Button } from '@/components/ui/button';
@@ -5,9 +6,15 @@ import { POSTINGS } from '@/constants/postings';
 import { MapPin } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { utils } from 'ethers';
 
 const FindAJob = () => {
+	const [postings, setPostings] = useState<Posting[]>([]);
+
+	useEffect(() => {
+		getAllPostData().then((data) => setPostings(data as Posting[]));
+	}, []);
 	const CATEGORIES = [
 		'Accounting',
 		'Business & Consulting',
@@ -75,9 +82,9 @@ const FindAJob = () => {
 						</div>
 					</div>
 					<div className='lg:col-span-2 grid grid-cols-1 gap-4 md:grid-cols-2'>
-						{POSTINGS.map((job, idx) => (
+						{postings.map((job, idx) => (
 							<div
-								className='w-full flex flex-col gap-8 hover:-translate-y-1 transition-all duration-300 bg-app-grey-light p-4 md:p-8 rounded border border-white/10'
+								className='w-full flex flex-col gap-8 hover:-translate-y-1 transition-all duration-300 h-fit bg-app-grey-light p-4 md:p-8 rounded border border-white/10'
 								key={idx}
 							>
 								<div className='flex flex-col gap-4'>
@@ -90,42 +97,41 @@ const FindAJob = () => {
 									<div className='text-base flex items-center gap-4'>
 										<p>
 											<span className='font-medium'>
-												{job.pay}
+												{utils.formatEther(
+													// @ts-ignore
+													job.payInMATIC
+												)}
 											</span>{' '}
-											INR
+											MATIC
 										</p>
 										<p>•</p>
 										<p>{job.experience}</p>
 									</div>
 								</div>
-								<div className='flex gap-4 items-center'>
-									<div>
-										<Image
-											unoptimized
-											className='w-12'
-											src={job.client.image}
-											alt='company logo'
-											width={100}
-											height={100}
-										/>
-									</div>
-									<div>
-										<p>{job.client.name}</p>
-										<p className='flex items-center gap-1'>
-											<MapPin
-												strokeWidth={1.5}
-												size={16}
-											/>{' '}
-											{job.location}
-										</p>
-									</div>
-								</div>
+								{/* <div className="flex gap-4 items-center">
+                  <div>
+                    <Image
+                      unoptimized
+                      className="w-12"
+                      src={job.client.image}
+                      alt="company logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <p>{job.client.name}</p>
+                    <p className="flex items-center gap-1">
+                      <MapPin strokeWidth={1.5} size={16} /> {job.location}
+                    </p>
+                  </div>
+                </div> */}
 								<Button
 									variant={'secondary'}
 									className='h-12 text-base mt-auto'
 									asChild
 								>
-									<Link href={`/posting/${job.id}`}>
+									<Link href={`/posting/${idx}`}>
 										View Posting
 									</Link>
 								</Button>

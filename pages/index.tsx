@@ -10,9 +10,9 @@ import Footer from "@/components/layouts/Footer";
 import { ethers } from "ethers";
 import ABI, { contractAddress } from "@/blockchain/constants/usersABI";
 import { useAccount } from "wagmi";
-import provider, { checkUserExists } from "@/blockchain/constants/utils";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { checkUserExists } from "@/blockchain/constants/utils";
 
 export default function Home() {
   const { isConnected, address } = useAccount();
@@ -20,19 +20,19 @@ export default function Home() {
 
   useEffect(() => {
     if (isConnected) {
-      checkUserExists(address!).then((res) => {
-        console.log(res);
-        if (res === "not-found") {
-          router.replace("/onboarding");
+      checkUserExists(address!).then((res: unknown) => {
+        if ((res as boolean[])[0] === false) {
+          router.push("/onboarding");
         } else {
-          if (res === "client") router.replace("/dashboard/client");
-          else router.replace("/find-a-job");
+          if ((res as string[])[1] === "Client") {
+            router.push("/dashboard/client");
+          } else {
+            router.push("/dashboard/freelancer");
+          }
         }
       });
     }
   }, [address]);
-
-  console.log(address);
 
   return (
     <div className="flex min-h-screen w-full bg-app-grey-dark text-stone-200">
