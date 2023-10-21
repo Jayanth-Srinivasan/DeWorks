@@ -578,12 +578,17 @@ const ABI = [
         name: "",
         type: "bool",
       },
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
     ],
     stateMutability: "view",
     type: "function",
   },
 ];
 
-export const contractAddress = "0x71d5aCA92AF2a7A2524eea6e1a4E816DfaB28Dd7";
+export const contractAddress = "0x17d81a30728E8B5790fBe4FeEffc3C594759Df59";
 
 export default ABI;
