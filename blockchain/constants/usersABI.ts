@@ -302,6 +302,71 @@ const ABI = [
     type: "function",
   },
   {
+    inputs: [],
+    name: "getAllJobs",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "address",
+            name: "clientId",
+            type: "address",
+          },
+          {
+            internalType: "string",
+            name: "title",
+            type: "string",
+          },
+          {
+            internalType: "string",
+            name: "location",
+            type: "string",
+          },
+          {
+            internalType: "string",
+            name: "category",
+            type: "string",
+          },
+          {
+            internalType: "uint256",
+            name: "payInMATIC",
+            type: "uint256",
+          },
+          {
+            internalType: "string",
+            name: "experience",
+            type: "string",
+          },
+          {
+            internalType: "string",
+            name: "description",
+            type: "string",
+          },
+          {
+            internalType: "address[]",
+            name: "freelancerRequests",
+            type: "address[]",
+          },
+          {
+            internalType: "address",
+            name: "freelancerId",
+            type: "address",
+          },
+          {
+            internalType: "bool",
+            name: "completed",
+            type: "bool",
+          },
+        ],
+        internalType: "struct UsersContract.Job[]",
+        name: "",
+        type: "tuple[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
     inputs: [
       {
         internalType: "address",
@@ -401,6 +466,77 @@ const ABI = [
           },
         ],
         internalType: "struct UsersContract.Freelancer",
+        name: "",
+        type: "tuple",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "jobId",
+        type: "uint256",
+      },
+    ],
+    name: "getJobById",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "address",
+            name: "clientId",
+            type: "address",
+          },
+          {
+            internalType: "string",
+            name: "title",
+            type: "string",
+          },
+          {
+            internalType: "string",
+            name: "location",
+            type: "string",
+          },
+          {
+            internalType: "string",
+            name: "category",
+            type: "string",
+          },
+          {
+            internalType: "uint256",
+            name: "payInMATIC",
+            type: "uint256",
+          },
+          {
+            internalType: "string",
+            name: "experience",
+            type: "string",
+          },
+          {
+            internalType: "string",
+            name: "description",
+            type: "string",
+          },
+          {
+            internalType: "address[]",
+            name: "freelancerRequests",
+            type: "address[]",
+          },
+          {
+            internalType: "address",
+            name: "freelancerId",
+            type: "address",
+          },
+          {
+            internalType: "bool",
+            name: "completed",
+            type: "bool",
+          },
+        ],
+        internalType: "struct UsersContract.Job",
         name: "",
         type: "tuple",
       },
@@ -589,6 +725,6 @@ const ABI = [
   },
 ];
 
-export const contractAddress = "0x17d81a30728E8B5790fBe4FeEffc3C594759Df59";
+export const contractAddress = "0xe5Fb2F0dd17A4306c4b99032E04A1dA1BE2ddDFf";
 
 export default ABI;

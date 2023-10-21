@@ -9,18 +9,18 @@ import Freelancers from "@/components/clientDashboard/Freelancers";
 import ConnectWalletButton from "@/components/connectWalletButton";
 import { useAccount } from "wagmi";
 import { useRouter } from "next/router";
+import { getAllPostData } from "@/blockchain/constants/utils";
 
 function ClientDashboard() {
-
   const { isConnected, address } = useAccount();
   const router = useRouter();
 
   useEffect(() => {
-      if (!isConnected) {
-          router.replace("/");
-      }
+    if (!isConnected) {
+      router.replace("/");
+    }
   }, [address]);
-  
+
   return (
     <main className="min-h-screen bg-[url('/assets/line-bg.png')] w-full font-outfit bg-app-grey-dark text-stone-200">
       <div className="p-4 md:px-16 lg:max-w-7xl lg:mx-auto">
@@ -46,7 +46,7 @@ function ClientDashboard() {
                 <span className="text-slate-300"> eric@frusciante.com </span>
               </p>
             </button> */}
-            <ConnectWalletButton/>
+            <ConnectWalletButton />
           </div>
         </div>
         <div className="flex flex-col md:flex-row md:justify-between mt-8 md:items-center gap-4 md:gap-0">
