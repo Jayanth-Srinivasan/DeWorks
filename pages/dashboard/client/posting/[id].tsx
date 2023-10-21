@@ -1,18 +1,44 @@
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 import { CheckCircle } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
 function ViewPosting() {
+  const CHATS = [
+    {
+      id: 1,
+      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      isClient: true,
+    },
+    {
+      id: 2,
+      message:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      isClient: false,
+    },
+    {
+      id: 3,
+      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      isClient: true,
+    },
+    {
+      id: 4,
+      message:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      isClient: false,
+    },
+  ]
   return (
     <main className="min-h-screen bg-[url('/assets/line-bg.png')] w-full font-outfit bg-app-grey-dark text-stone-200">
-      <section className="p-4 flex md:px-16 items-center gap-6 max-w-7xl mx-auto py-[50px] md:py-[80px]">
-        <div>
+      <section className="p-4 flex flex-col md:flex-row md:px-16 items-center gap-12 w-full mx-auto py-[50px] md:py-[80px]">
+        <div className="md:w-2/3 w-full">
           <h1 className="text-3xl lg:text-5xl font-bold">
             Digital Marketing Manager
           </h1>
           <p className="text-slate-200 text-lg font-medium md:text-xl mt-4">
-            $8000 USD • 2 days ago • 5 applicants
+            $8000 USD • 2 days ago
           </p>
           <div className="py-8">
             <p className="text-lg font-medium">Assigned To:</p>
@@ -64,12 +90,53 @@ function ViewPosting() {
           </div>
           <div className="p-4 border-2 border-app-grey-light bg-app-grey-light rounded-md mt-4 max-w-lg">
             <p className="text-md">View Files</p>
-            <div className="p-2 border-2 border-stone-500 rounded-md mt-2">
-              1.File one
+            <div>
+              <div className="p-2 border-2 border-stone-500 rounded-md mt-2 underline">
+                1.File one
+              </div>
+              <div className="p-2 border-2 border-stone-500 rounded-md mt-2 underline">
+                1.File one
+              </div>
+              <div className="p-2 border-2 border-stone-500 rounded-md mt-2 underline">
+                1.File one
+              </div>
+            </div>
+          </div>
+          <div className="flex gap-2 max-w-lg mt-4 ">
+            <Button variant={"outline"} className="h-12 w-full text-base">
+              Accept
+            </Button>
+            <Button variant={"outline"} className="h-12 w-full text-base">
+              Decline
+            </Button>
+          </div>
+        </div>
+        <div className=" h-[600px] md:w-3/4 w-full ">
+          <div className="flex flex-col flex-grow w-full h-full bg-app-grey-light shadow-xl rounded-lg overflow-hidden">
+            <div className="flex flex-col flex-grow h-0 p-4 overflow-auto">
+              {CHATS.map((chat) => (
+                <div key={chat.id}>
+                  {chat.isClient ? (
+                    <div className="flex w-full mt-2 space-x-3 max-w-xs">
+                      <div className="p-3 bg-gray-600/50 rounded-r-lg rounded-bl-lg">
+                        <p className="text-sm">{chat.message}</p>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end ">
+                      <div className="bg-app-slate-blue text-white p-3 rounded-l-lg rounded-br-lg">
+                        <p className="text-sm">{chat.message}</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="bg-gray-500/50 p-4">
+              <Input className="w-full" placeholder="Type a message" />
             </div>
           </div>
         </div>
-        <div>chat</div>
       </section>
     </main>
   );

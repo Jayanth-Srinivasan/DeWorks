@@ -1,7 +1,7 @@
-import { readContract, writeContract } from "@wagmi/core";
-import ABI, { contractAddress } from "./usersABI";
+import { readContract, writeContract } from '@wagmi/core';
+import ABI, { contractAddress } from './usersABI';
 
-import { ethers, parseEther } from "ethers";
+import { ethers, parseEther } from 'ethers';
 // import { ethers } from "ethers";
 
 // const rpcUrl =
@@ -159,112 +159,112 @@ import { ethers, parseEther } from "ethers";
 // };
 
 const checkUserExists = async (walletAddress: string) => {
-  const data = await readContract({
-    address: contractAddress,
-    abi: ABI,
-    functionName: "userExists",
-    args: [walletAddress],
-  });
+	const data = await readContract({
+		address: contractAddress,
+		abi: ABI,
+		functionName: 'userExists',
+		args: [walletAddress],
+	});
 
-  console.log(data);
-  return data;
+	console.log(data);
+	return data;
 };
 
 const addClientData = async (
-  yourName: string,
-  companyName: string,
-  description: string,
-  email: string,
-  walletAddress: string
+	yourName: string,
+	companyName: string,
+	description: string,
+	email: string,
+	walletAddress: string
 ) => {
-  const { hash } = await writeContract({
-    address: contractAddress,
-    abi: ABI,
-    functionName: "addOrUpdateClientData",
-    args: [yourName, companyName, description, email, walletAddress],
-  });
+	const { hash } = await writeContract({
+		address: contractAddress,
+		abi: ABI,
+		functionName: 'addOrUpdateClientData',
+		args: [yourName, companyName, description, email, walletAddress],
+	});
 
-  console.log(hash);
-  return hash;
+	console.log(hash);
+	return hash;
 };
 
 const addFreelancerData = async (
-  name: string,
-  email: string,
-  category: string,
-  skills: string,
-  experience: string,
-  walletAddress: string
+	name: string,
+	email: string,
+	category: string,
+	skills: string,
+	experience: string,
+	walletAddress: string
 ) => {
-  const { hash } = await writeContract({
-    address: contractAddress,
-    abi: ABI,
-    functionName: "addOrUpdateFreelancerData",
-    args: [name, email, category, experience, skills, walletAddress],
-  });
+	const { hash } = await writeContract({
+		address: contractAddress,
+		abi: ABI,
+		functionName: 'addOrUpdateFreelancerData',
+		args: [name, email, category, experience, skills, walletAddress],
+	});
 
-  console.log(hash);
-  return hash;
+	console.log(hash);
+	return hash;
 };
 
 const postJob = async (
-  title: string,
-  location: string,
-  category: string,
-  payInMATIC: number,
-  experience: string,
-  description: string
+	title: string,
+	location: string,
+	category: string,
+	payInMATIC: number,
+	experience: string,
+	description: string
 ) => {
-  try {
-    const { hash } = await writeContract({
-      address: contractAddress,
-      abi: ABI,
-      functionName: "postJob",
-      args: [
-        title,
-        location,
-        category,
-        parseEther(payInMATIC.toString()),
-        experience,
-        description,
-      ],
-      value: parseEther(payInMATIC.toString()),
-    });
-    return hash;
-  } catch (err) {
-    console.log(err);
-  }
+	try {
+		const { hash } = await writeContract({
+			address: contractAddress,
+			abi: ABI,
+			functionName: 'postJob',
+			args: [
+				title,
+				location,
+				category,
+				parseEther(payInMATIC.toString()),
+				experience,
+				description,
+			],
+			value: parseEther(payInMATIC.toString()),
+		});
+		return hash;
+	} catch (err) {
+		console.log(err);
+	}
 };
 
 const getAllPostData = async () => {
-  const data = await readContract({
-    address: contractAddress,
-    abi: ABI,
-    functionName: "getAllJobs",
-    args: [],
-  });
+	const data = await readContract({
+		address: contractAddress,
+		abi: ABI,
+		functionName: 'getAllJobs',
+		args: [],
+	});
 
-  console.log(data);
-  return data;
+	console.log(data);
+	return data;
 };
 
 const getJobById = async (id: number) => {
-  const data = await readContract({
-    address: contractAddress,
-    abi: ABI,
-    functionName: "getJobById",
-    args: [id],
-  });
+	const data = await readContract({
+		address: contractAddress,
+		abi: ABI,
+		functionName: 'getJobById',
+		args: [id],
+	});
 
-  console.log(data);
-  return data;
+	console.log(data);
+	return data;
 };
 
 export {
-  checkUserExists,
-  addClientData,
-  addFreelancerData,
-  postJob,
-  getAllPostData,
-  getJobById,
+	checkUserExists,
+	addClientData,
+	addFreelancerData,
+	postJob,
+	getAllPostData,
+	getJobById,
 };
