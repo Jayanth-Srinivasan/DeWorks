@@ -84,16 +84,17 @@ const FindAJob = () => {
 					<div className='lg:col-span-2 grid grid-cols-1 gap-4 md:grid-cols-2'>
 						{postings.map((job, idx) => (
 							<div
-								className='w-full flex flex-col gap-8 hover:-translate-y-1 transition-all duration-300 h-fit bg-app-grey-light p-4 md:p-8 rounded border border-white/10'
+								className='w-full capitalize flex flex-col gap-8 hover:-translate-y-1 transition-all duration-300 h-fit bg-app-grey-light p-4 md:p-8 rounded border border-white/10'
 								key={idx}
 							>
 								<div className='flex flex-col gap-4'>
 									<h2 className='bg-app-slate-blue rounded font-medium px-2 py-1 w-fit'>
-										{job.category}
+										{job.title}
 									</h2>
 									<h1 className='font-semibold text-2xl'>
-										{job.title}
+										{job.location}
 									</h1>
+									<p className='capitalize'>{job.description}</p>
 									<div className='text-base flex items-center gap-4'>
 										<p>
 											<span className='font-medium'>
