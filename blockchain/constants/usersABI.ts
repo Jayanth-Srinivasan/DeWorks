@@ -1,5 +1,130 @@
 const ABI = [
   {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "uint256",
+        name: "jobId",
+        type: "uint256",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "clientId",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "freelancerId",
+        type: "address",
+      },
+    ],
+    name: "JobAccepted",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "uint256",
+        name: "jobId",
+        type: "uint256",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "clientId",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "freelancerId",
+        type: "address",
+      },
+    ],
+    name: "JobCompleted",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "uint256",
+        name: "jobId",
+        type: "uint256",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "clientId",
+        type: "address",
+      },
+    ],
+    name: "JobPosted",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "uint256",
+        name: "jobId",
+        type: "uint256",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "freelancerId",
+        type: "address",
+      },
+    ],
+    name: "JobRequested",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "freelancerId",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "MATICTransferred",
+    type: "event",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "jobId",
+        type: "uint256",
+      },
+      {
+        internalType: "address",
+        name: "freelancerToAccept",
+        type: "address",
+      },
+    ],
+    name: "acceptJobRequest",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
     inputs: [
       {
         internalType: "string",
@@ -45,11 +170,6 @@ const ABI = [
         type: "string",
       },
       {
-        internalType: "address",
-        name: "walletAddress",
-        type: "address",
-      },
-      {
         internalType: "string",
         name: "category",
         type: "string",
@@ -64,78 +184,13 @@ const ABI = [
         name: "skills",
         type: "string",
       },
+      {
+        internalType: "address",
+        name: "walletAddress",
+        type: "address",
+      },
     ],
     name: "addOrUpdateFreelancerData",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "walletAddress",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "string",
-        name: "yourName",
-        type: "string",
-      },
-    ],
-    name: "ClientDataUpdated",
-    type: "event",
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "walletAddress",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "string",
-        name: "name",
-        type: "string",
-      },
-      {
-        indexed: false,
-        internalType: "string",
-        name: "category",
-        type: "string",
-      },
-    ],
-    name: "FreelancerDataUpdated",
-    type: "event",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "walletAddress",
-        type: "address",
-      },
-    ],
-    name: "markClientDataAsDeleted",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "walletAddress",
-        type: "address",
-      },
-    ],
-    name: "markFreelancerDataAsDeleted",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -182,6 +237,19 @@ const ABI = [
       },
     ],
     stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "jobId",
+        type: "uint256",
+      },
+    ],
+    name: "completeJob",
+    outputs: [],
+    stateMutability: "nonpayable",
     type: "function",
   },
   {
@@ -276,7 +344,7 @@ const ABI = [
             type: "bool",
           },
         ],
-        internalType: "struct DataStorage.Client",
+        internalType: "struct UsersContract.Client",
         name: "",
         type: "tuple",
       },
@@ -332,12 +400,167 @@ const ABI = [
             type: "bool",
           },
         ],
-        internalType: "struct DataStorage.Freelancer",
+        internalType: "struct UsersContract.Freelancer",
         name: "",
         type: "tuple",
       },
     ],
     stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "jobCounter",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    name: "jobs",
+    outputs: [
+      {
+        internalType: "address",
+        name: "clientId",
+        type: "address",
+      },
+      {
+        internalType: "string",
+        name: "title",
+        type: "string",
+      },
+      {
+        internalType: "string",
+        name: "location",
+        type: "string",
+      },
+      {
+        internalType: "string",
+        name: "category",
+        type: "string",
+      },
+      {
+        internalType: "uint256",
+        name: "payInMATIC",
+        type: "uint256",
+      },
+      {
+        internalType: "string",
+        name: "experience",
+        type: "string",
+      },
+      {
+        internalType: "string",
+        name: "description",
+        type: "string",
+      },
+      {
+        internalType: "address",
+        name: "freelancerId",
+        type: "address",
+      },
+      {
+        internalType: "bool",
+        name: "completed",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "walletAddress",
+        type: "address",
+      },
+    ],
+    name: "markClientDataAsDeleted",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "walletAddress",
+        type: "address",
+      },
+    ],
+    name: "markFreelancerDataAsDeleted",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "title",
+        type: "string",
+      },
+      {
+        internalType: "string",
+        name: "location",
+        type: "string",
+      },
+      {
+        internalType: "string",
+        name: "category",
+        type: "string",
+      },
+      {
+        internalType: "uint256",
+        name: "payInMATIC",
+        type: "uint256",
+      },
+      {
+        internalType: "string",
+        name: "experience",
+        type: "string",
+      },
+      {
+        internalType: "string",
+        name: "description",
+        type: "string",
+      },
+    ],
+    name: "postJob",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "jobId",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "jobId",
+        type: "uint256",
+      },
+    ],
+    name: "requestJob",
+    outputs: [],
+    stateMutability: "nonpayable",
     type: "function",
   },
   {
@@ -355,17 +578,12 @@ const ABI = [
         name: "",
         type: "bool",
       },
-      {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
     ],
     stateMutability: "view",
     type: "function",
   },
 ];
 
-export const contractAddress = "0x753f7e810aA74eB8dA9d6D3649e2F0F46d7d03F7";
+export const contractAddress = "0x71d5aCA92AF2a7A2524eea6e1a4E816DfaB28Dd7";
 
 export default ABI;
