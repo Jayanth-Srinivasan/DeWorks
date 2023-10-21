@@ -57,9 +57,11 @@ const IndividualPostingPage = () => {
 			getJobById(Number(idx)).then((data) => {
 				/* @ts-ignore */
 				setPost({
+					// @ts-ignore
 					...data,
+					// @ts-ignore
 					formatedMatic: utils.formatEther(data.payInMATIC),
-				});
+				} as Posting);
 			});
 		}
 	}, [address, idx]);
