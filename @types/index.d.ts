@@ -12,6 +12,7 @@ type Posting = Readonly<{
 		name: string;
 		image: string;
 	};
+	walletAddress: string;
 }>;
 
 type Experience = 'Beginner' | 'Intermediate' | 'Expert';
