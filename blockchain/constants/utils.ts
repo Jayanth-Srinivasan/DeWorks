@@ -1,7 +1,7 @@
 import { readContract, writeContract } from '@wagmi/core';
 import ABI, { contractAddress } from './usersABI';
 
-import { ethers, parseEther } from 'ethers';
+import { ethers, utils } from 'ethers';
 // import { ethers } from "ethers";
 
 // const rpcUrl =
@@ -224,11 +224,12 @@ const postJob = async (
 				title,
 				location,
 				category,
-				parseEther(payInMATIC.toString()),
+				utils.parseEther(payInMATIC.toString()),
 				experience,
 				description,
 			],
-			value: parseEther(payInMATIC.toString()),
+			// @ts-ignore
+			value: utils.parseEther(payInMATIC.toString()),
 		});
 		return hash;
 	} catch (err) {
