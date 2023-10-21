@@ -57,6 +57,7 @@ const ConnectWalletButton = ({ className }: { className?: string }) => {
 
               return (
                 <div
+                className={className}
                   style={{
                     display: "flex",
                     gap: 12,

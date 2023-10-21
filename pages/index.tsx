@@ -26,7 +26,7 @@ export default function Home() {
           router.replace("/onboarding");
         } else {
           if (res === "client") router.replace("/dashboard/client");
-          else router.replace("/dashboard/freelancer");
+          else router.replace("/find-a-job");
         }
       });
     }
